@@ -2,17 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueUnit : MonoBehaviour
+[System.Serializable]
+public class DialogueUnit
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] public int _id;
+    [SerializeField] public string _text;
+
+    [SerializeField] public List<ChoiceUnit> _choices;
+
+    public int Id
     {
-        
+        get
+        {
+            return _id;
+        }
+        set
+        {
+            _id = value ;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public string Text
     {
-        
+        get
+        {
+            return _text;
+        }
+        set
+        {
+            _text = value ;
+        }
     }
+
+    public List<ChoiceUnit> Choices
+    {
+        get
+        {
+            return _choices;
+        }
+        set
+        {
+            _choices = value ;
+        }
+    }
+
+    public DialogueUnit(int id, string text, List<ChoiceUnit> choices){
+
+    _id = id;
+    _text = text;
+    _choices = choices;
+
+    }
+
+    
 }
