@@ -5,22 +5,22 @@ using UnityEngine;
 [System.Serializable]
 public class ChoiceUnit
 {
-    [SerializeField] public int _id;
+    // [SerializeField] public int _id;
     [SerializeField] public string _text;
     [SerializeField] public int _nextDialogueUnit;
     [SerializeField] public List<string> _flags;
 
-    public int Id
-    {
-        get
-        {
-            return _id;
-        }
-        set
-        {
-            _id = value ;
-        }
-    }
+    // public int Id
+    // {
+    //     get
+    //     {
+    //         return _id;
+    //     }
+    //     set
+    //     {
+    //         _id = value ;
+    //     }
+    // }
 
     public string Text
     {
@@ -58,9 +58,9 @@ public class ChoiceUnit
         }
     }
 
-    public ChoiceUnit(int id, string text, int nextDialogueUnit, List<string> flags){
+    public ChoiceUnit(/*int id,*/ string text, int nextDialogueUnit, List<string> flags){
 
-        _id = id;
+        // _id = id;
         _text = text;
         _nextDialogueUnit = nextDialogueUnit;
         _flags = flags;
