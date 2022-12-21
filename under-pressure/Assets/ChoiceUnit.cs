@@ -6,64 +6,16 @@ using UnityEngine;
 public class ChoiceUnit
 {
     // [SerializeField] public int _id;
-    [SerializeField] public string _text;
-    [SerializeField] public int _nextDialogueUnit;
-    [SerializeField] public List<string> _flags;
+    [SerializeField] public string text;
+    [SerializeField] public int nextDialogueUnit;
+    [SerializeField] public List<string> flags;
 
-    // public int Id
-    // {
-    //     get
-    //     {
-    //         return _id;
-    //     }
-    //     set
-    //     {
-    //         _id = value ;
-    //     }
-    // }
-
-    public string Text
-    {
-        get
-        {
-            return _text;
-        }
-        set
-        {
-            _text = value ;
-        }
-    }
-
-        public int NextDialogueUnit
-    {
-        get
-        {
-            return _nextDialogueUnit;
-        }
-        set
-        {
-            _nextDialogueUnit = value ;
-        }
-    }
-
-    public List<string> Flags
-    {
-        get
-        {
-            return _flags;
-        }
-        set
-        {
-            _flags = value ;
-        }
-    }
-
-    public ChoiceUnit(/*int id,*/ string text, int nextDialogueUnit, List<string> flags){
+    public ChoiceUnit(/*int id,*/ string newText, int newNextDialogueUnit, List<string> newFlags){
 
         // _id = id;
-        _text = text;
-        _nextDialogueUnit = nextDialogueUnit;
-        _flags = flags;
+        text = newText;
+        nextDialogueUnit = newNextDialogueUnit;
+        flags = newFlags;
 
     }
 

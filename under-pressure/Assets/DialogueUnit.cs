@@ -6,52 +6,18 @@ using UnityEngine;
 public class DialogueUnit
 {
 
-    [SerializeField] public int _id;
-    [SerializeField] public string _text;
+    //[SerializeField] public int id;
+    [SerializeField] public string text;
+    [SerializeField] public string character;
 
-    [SerializeField] public List<ChoiceUnit> _choices;
+    [SerializeField] public List<ChoiceUnit> choices;
 
-    public int Id
-    {
-        get
-        {
-            return _id;
-        }
-        set
-        {
-            _id = value ;
-        }
-    }
+    public DialogueUnit(/*int newId,*/ string newText, string newCharacter, List<ChoiceUnit> newChoices){
 
-    public string Text
-    {
-        get
-        {
-            return _text;
-        }
-        set
-        {
-            _text = value ;
-        }
-    }
-
-    public List<ChoiceUnit> Choices
-    {
-        get
-        {
-            return _choices;
-        }
-        set
-        {
-            _choices = value ;
-        }
-    }
-
-    public DialogueUnit(int id, string text, List<ChoiceUnit> choices){
-
-    _id = id;
-    _text = text;
-    _choices = choices;
+    // id = newId;
+    text = newText;
+    character = newCharacter;
+    choices = newChoices;
 
     }
 
