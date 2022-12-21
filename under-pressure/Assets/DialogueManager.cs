@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour
             // Adding a new dialogue line
             dialogues.Add(
 
-                // This is a DialogueUnit object the line of text to be displayed, and the possible replies
+                // This is a DialogueUnit object, it holds the line of text to be displayed, and the possible replies
                 new DialogueUnit(
 
                     "Hey there! Do you like bananas or apples?", // The text line to be displayed
