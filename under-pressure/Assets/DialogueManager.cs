@@ -71,7 +71,7 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        GameObject.Find("Dialogue/Text").GetComponent<TextMeshProUGUI>().text = dialogueUnit.text;
+        GameObject.Find("Dialogue/TextPanel/Text").GetComponent<TextMeshProUGUI>().text = dialogueUnit.text;
 
     }
 
