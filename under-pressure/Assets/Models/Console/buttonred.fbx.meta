@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: ff4a94d579d17f6429ba96eec8439775
+guid: 01855f924f9901a4e8e80833e6e60f20
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light metal
+    second: {fileID: 2100000, guid: 80c14273d7d8af049b0aff59da7d4c1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red button
+    second: {fileID: 2100000, guid: cd09677d2750a8d45939f02faa1a4954, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
