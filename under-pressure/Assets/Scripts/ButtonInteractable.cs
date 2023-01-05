@@ -7,19 +7,26 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ButtonInteractable : XRBaseInteractable
 {
+    [Header("Custom Properties (Anything above is inherited)")]
     public UnityEvent OnPress = null;
+    public UnityEvent OnRelease = null;
 
+    [SerializeField, Tooltip("Assign a child GameObject button with a kinematic Rigidbody and Collider here. " +
+        "Using this GameObject will work but might mess up the visualization.")] 
+    private Transform buttonTransform;
     [SerializeField, Range(0f, 1f), Tooltip("The activation happens at this percentage height of the collider")] 
-    private float activationThreshold = 0.5f;
+    private float activationThresholdPercent = 0.5f;
 
-    private float minY = 0f;
+    [SerializeField, Tooltip("The minimum local height that the button may have. 0 is initial height")] 
+    private float minY = -0.1f;
+    [SerializeField, Tooltip("The maximum local height that the button may have. 0 is initial height.")] 
     private float maxY = 0f;
+
+    private float activationThreshold;
     private bool wasPressedLastFrame = false;
 
     private IXRHoverInteractor hoverInteractor = null;
     private float previousHandHeight = 0f;
-
-    private Collider coll;
 
 
     protected override void Awake()
@@ -41,15 +48,7 @@ public class ButtonInteractable : XRBaseInteractable
 
     private void Start()
     {
-        coll = GetComponent<Collider>();
-        SetMinMax();
-    }
-
-    // Height range is based on collider
-    private void SetMinMax()
-    {
-        minY = transform.localPosition.y - (coll.bounds.size.y * 0.5f);
-        maxY = transform.localPosition.y;
+        activationThreshold = Mathf.Abs(minY - maxY) * activationThresholdPercent;
     }
 
     // Runs on interactable hover enter and sets the current interactor and position
@@ -61,6 +60,11 @@ public class ButtonInteractable : XRBaseInteractable
 
     // Runs on interactable hover exit and resets everything
     private void EndPress(HoverExitEventArgs args)
+    {
+        ResetButton();
+    }
+
+    public void ResetButton()
     {
         hoverInteractor = null;
         previousHandHeight = 0f;
@@ -75,12 +79,11 @@ public class ButtonInteractable : XRBaseInteractable
         // Do nothing if nothing's nearby, otherwise update position of the button
         if (hoverInteractor != null)
         {
-            // Take the 
             float newHandHeight = GetLocalYPosition(hoverInteractor.transform.position);
             float handDifference = previousHandHeight - newHandHeight;
             previousHandHeight = newHandHeight;
 
-            float newPosition = transform.localPosition.y - handDifference;
+            float newPosition = buttonTransform.localPosition.y - handDifference;
             SetYPosition(newPosition);
 
             CheckPress();
@@ -90,7 +93,7 @@ public class ButtonInteractable : XRBaseInteractable
     // Local y position allows any orientation of the button to work
     private float GetLocalYPosition(Vector3 position)
     {
-        Vector3 localPosition = transform.root.InverseTransformPoint(position);
+        Vector3 localPosition = buttonTransform.root.InverseTransformPoint(position);
 
         return localPosition.y;
     }
@@ -98,9 +101,9 @@ public class ButtonInteractable : XRBaseInteractable
     // Just clamps the button height to the min/max
     private void SetYPosition(float position)
     {
-        Vector3 newPosition = transform.localPosition;
+        Vector3 newPosition = buttonTransform.localPosition;
         newPosition.y = Mathf.Clamp(position, minY, maxY);
-        transform.localPosition = newPosition;
+        buttonTransform.localPosition = newPosition;
     }
 
     private void CheckPress()
@@ -113,6 +116,11 @@ public class ButtonInteractable : XRBaseInteractable
             Debug.Log("Detected press");
             OnPress.Invoke();
         }
+        else if (!isPressed && wasPressedLastFrame)
+        {
+            Debug.Log("Detected release");
+            OnRelease.Invoke();
+        }
 
         // This frame becomes last frame
         wasPressedLastFrame = isPressed;
@@ -121,24 +129,44 @@ public class ButtonInteractable : XRBaseInteractable
     private bool IsInPosition()
     {
         // Check if value remains the same after clamping to activation range; if true, it was in range
-        float inRange = Mathf.Clamp(transform.localPosition.y, minY, minY + activationThreshold);
+        float inRange = Mathf.Clamp(buttonTransform.localPosition.y, minY, minY + activationThreshold);
 
-        Debug.Log("Is in range: " + (transform.localPosition.y == inRange));
-
-        return transform.localPosition.y == inRange;
+        return buttonTransform.localPosition.y == inRange;
     }
 
-    private void OnDrawGizmosSelected()
+    #region Visualizer Gizmo
+    // Show the min/max positions and the threshold in the editor as "planes"
+    private void OnDrawGizmos()
     {
-        Vector3 localPosition = transform.localPosition;
-        Vector3 size = coll.bounds.size;
-        size.y = 0.01f * size.y;
+        Collider c = buttonTransform.GetComponent<Collider>();
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(new Vector3(localPosition.x, minY, localPosition.z), size);
-        Gizmos.DrawWireCube(new Vector3(localPosition.x, maxY, localPosition.z), size);
+        if (c != null && buttonTransform != null)
+        {
+            float debugActivationThreshold = Mathf.Abs(minY - maxY) * activationThresholdPercent;
 
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(new Vector3(localPosition.x, minY + activationThreshold, localPosition.z), size);
+            Vector3 localPosition = buttonTransform.localPosition;
+            Vector3 size = c.bounds.size;
+            size.y = 0.01f * size.y;
+
+            Gizmos.matrix = transform.localToWorldMatrix;
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(
+                new Vector3(localPosition.x, minY, localPosition.z), size);
+            Gizmos.DrawWireCube(new Vector3(localPosition.x, maxY, localPosition.z), size);
+
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(
+                new Vector3(localPosition.x, minY + debugActivationThreshold, localPosition.z),
+                size
+                );
+
+            Gizmos.color = Color.yellow;
+            if (localPosition.y < (minY + debugActivationThreshold))
+                Gizmos.color = Color.red;
+
+            Gizmos.DrawWireCube(localPosition, size * 0.5f);
+        }
     }
+    #endregion
 }
