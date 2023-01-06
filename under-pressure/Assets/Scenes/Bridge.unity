@@ -3585,8 +3585,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2074245675}
-  - component: {fileID: 2074245676}
   - component: {fileID: 2074245677}
+  - component: {fileID: 2074245676}
   m_Layer: 6
   m_Name: PostProcessVolume
   m_TagString: Untagged
@@ -3602,8 +3602,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074245674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.16, z: 5.93}
-  m_LocalScale: {x: 6.443198, y: 5.3093905, z: 1.619897}
+  m_LocalPosition: {x: 0, y: 2.16, z: 4.02}
+  m_LocalScale: {x: 6.443198, y: 5.3093905, z: 6.7157526}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3622,8 +3622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 5c9fb8b96e94274499e306951a786cae, type: 2}
-  isGlobal: 1
-  blendDistance: 0
+  isGlobal: 0
+  blendDistance: 0.65
   weight: 1
   priority: 0
 --- !u!65 &2074245677
