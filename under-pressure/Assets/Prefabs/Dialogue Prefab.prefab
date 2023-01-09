@@ -1,0 +1,316 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3022694105145630177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4701732570000381579}
+  - component: {fileID: 3471962782360244336}
+  m_Layer: 0
+  m_Name: Dialogue Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4701732570000381579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3022694105145630177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3471962782360244336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3022694105145630177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699605e96ed6b544dac5f52193b33a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - Overseer
+  - Family
+  - Aristocrat
+  - Agent
+  - Captain
+  dialogues:
+  - text: 'Greetings, transport module 589, your shipment has been received at the
+      port.
+
+
+      Your next instruction is to deliver 120 crates of Ferrotassium
+      to the Telite republic at the Barren Oceans.
+
+
+      Keep on your guard, our
+      shipments do not usually cruise here, make sure to not bring any unwanted crew
+      on-board, understood?
+
+
+      A detailed view of your path has been uploaded
+      to your navigation desk.
+
+
+      Good luck Captain. Over and out.'
+    character: Overseer
+    choices: []
+  - text: 'Please kind sir, let us board your vessel!
+
+
+      Our child is starving
+      and we have no other way to our destination!
+
+
+      Please, rescue us, you
+      know how the new government treats people like us!'
+    character: Family
+    choices:
+    - text: No
+      nextDialogueUnit: 2
+      flags: []
+    - text: Yes
+      nextDialogueUnit: 3
+      flags:
+      - Family
+  - text: But sir-! *Communication closes abruptly*
+    character: Family
+    choices: []
+  - text: You have our thanks! Where can we stay?
+    character: Family
+    choices:
+    - text: Cargo Bay
+      nextDialogueUnit: 0
+      flags:
+      - Family in cargo
+    - text: Cleaning closet
+      nextDialogueUnit: 0
+      flags:
+      - Family in cleaning closet
+    - text: Backup sleeping quarter
+      nextDialogueUnit: 0
+      flags:
+      - Family in backup sleeping quarter
+  - text: 'I do not have time for dabble, I require a transport to the Kothos Republic
+      at once! I have important meetings to attend to.
+
+
+      I will pay you 280
+      thousand Kropos if you take me there.
+
+
+      Well?'
+    character: Aristocrat
+    choices:
+    - text: No
+      nextDialogueUnit: 5
+      flags: []
+    - text: Yes
+      nextDialogueUnit: 6
+      flags:
+      - Aristocrat
+  - text: You will regret this! *muttering*
+    character: Aristocrat
+    choices: []
+  - text: "Naturally. \n\nInform me of your most suited quarters for residence."
+    character: Aristocrat
+    choices:
+    - text: Cargo bay
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat in cargo bay
+    - text: Cleaning closet
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat in cargo bay
+    - text: Backup sleeping quarter
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat in backup sleeping quarter
+  - text: 'Greetings, transport module 589, you may approach the dock.
+
+
+      Very
+      good, Captain. I will send a team to assist with the cargo transfer and any
+      other needs you may have.
+
+
+      Safe travels Captain.'
+    character: Overseer
+    choices: []
+  - text: 'Captain, I am an agent of the Kothos Republic, my badge number is K9G7D54.
+
+
+      Under
+      the decree of our Supreme Leader Urilius, I demand passage to Belium Station.'
+    character: Agent
+    choices: []
+  - text: I'm sorry, but we are only authorised to transport cargo and crew. Transporting
+      passengers is strictly prohibited.
+    character: Agent
+    choices: []
+  - text: 'Captain, I am an agent of the Kothos Republic, my badge number is K9G7D54.
+
+
+      Under
+      the decree of our Supreme Leader Urilius, I demand passage to Belium Station.'
+    character: Agent
+    choices: []
+  - text: 'I see. In that case, come aboard.
+
+
+      You will have to stay in an
+      unoccupied area as the cargo can be temperamental at our depths.'
+    character: Captain
+    choices: []
+  - text: "There is something I need to tell you.\n\nThere is a stowaway family of
+      Meludes on board. The asked for passage and haven\u2019t given me any trouble.
+      I couldn\u2019t turn them away."
+    character: Captain
+    choices: []
+  - text: Captain, you should know that smuggling is a serious crime. I will have
+      to take the family into custody and investigate the matter further.
+    character: Agent
+    choices: []
+  - text: 'I understand, Agent. I''m willing to accept the consequences of my actions.
+
+
+      Just
+      please make sure the family is treated fairly.'
+    character: Captain
+    choices: []
+  - text: Thank you for your cooperation, Captain, but the Republic's laws are absolute.
+    character: Agent
+    choices: []
+  - text: "There is something I need to tell you, a Telite is on board. \n\nHe demanded
+      passage and I could not refuse, you know how these aristocrats can be."
+    character: Captain
+    choices: []
+  - text: "Captain, you should know that smuggling is a serious crime, especially
+      if it involves the likes of them. \n\nI will need to investigate the matter
+      further."
+    character: Agent
+    choices: []
+  - text: "I understand, Agent. I'm willing to accept the consequences of my actions.
+      \n\nI would appreciate it if you didn't tell him you got this information from
+      me."
+    character: Captain
+    choices: []
+  - text: 'In the light of that, I will only leave you with a fine and a warning
+      that the next time this happens you are going to lose a lot more than just
+      some profits.
+
+
+      At your age you should know better than this, maybe it
+      is time for you to retire before any accidents befall you.
+
+
+      These waters
+      can be dangerous.'
+    character: Agent
+    choices: []
+  - text: "Captain, learning that you had given in to illegal passengers once could
+      have been settled with a light punishment from the goodwill of telling me,
+      but I discovered more on board.\n\nLying to an official of the Kothos Republic
+      is tantamount to treason. I'm afraid I will have to arrest you for your involvement
+      in these crimes. \n\nSome time in the Karthal correction facility might put
+      you on the right path again, if you survive that is."
+    character: Agent
+    choices: []
+  - text: "There is something I need to tell you.\n\nA Telite and a family of Meludes
+      are on board. One demanded passage and the others were in such a poor condition
+      that I couldn\u2019t refuse."
+    character: Captain
+    choices: []
+  - text: 'Captain, you should know that smuggling is a serious crime, especially
+      if it involves the likes of them.
+
+
+      I will have to take both the family
+      and the aristocrat into custody and investigate the matter further.'
+    character: Agent
+    choices: []
+  - text: 'I understand, Agent. I''m willing to accept the consequences of my actions.
+
+
+      I
+      would never disregard the Republics laws willingly, it will not repeat itself.'
+    character: Captain
+    choices: []
+  - text: 'In light of the circumstances I have no choice other than commandeering
+      this vessel.
+
+
+      I have contacted the local authorities so they can take
+      both the family and the aristocrat into custody at our next stop.
+
+
+      You
+      will be under my command for this mission, your sentence when we get back will
+      depend on your performance.'
+    character: Agent
+    choices: []
+  - text: Captain, may I have a word?
+    character: Agent
+    choices: []
+  - text: Of course, are you comfortable in the quarters? Is there anything I can
+      do for you?
+    character: Captain
+    choices: []
+  - text: "I conducted an inspection of your vessel. \n\nSeveral of your safety protocols
+      are out of date, and some of your equipment is not properly maintained. \n\nThis
+      is a serious breach of regulation in a government contracted submarine."
+    character: Agent
+    choices: []
+  - text: I'm sorry, Agent. We have been working hard to keep our ship in good condition,
+      but I see now that we have fallen behind on some of our normal procedures.
+      These are not easy waters to navigate.
+    character: Captain
+    choices: []
+  - text: 'Captain, you should know that violating safety codes is a serious offence.
+      I am required to issue a fine for these violations.
+
+
+      Perhaps an arrangement
+      can be made as I need transportation beyond Belium Station.'
+    character: Agent
+    choices: []
+  - text: As you see we have some repairs scheduled at the station, maybe if you
+      help us field the costs we would be able to better accommodate your needs.
+    character: Captain
+    choices: []
+  - text: "I will talk to the quartermaster when we get there to see what can be
+      done. \n\nHowever, this will further your debt to me."
+    character: Agent
+    choices: []
+  - text: 'Salutations transport module 589, I see this is your final destination,
+      welcome to the station, you can head over to dock 8.
+
+
+      Very good, Captain.
+      A crew will be there shortly to help with the transport of the Ferrotassium,
+      you came in good time.
+
+
+      Lodgings for the crew have been prepared while
+      maintenance is carried out.'
+    character: Overseer
+    choices: []
+  currentDialogue: 0
+  buttons: []
