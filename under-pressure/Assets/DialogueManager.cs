@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         
-            dialogues = new List<DialogueUnit>();
+            //dialogues = new List<DialogueUnit>();
 
             flags = new Dictionary<string, bool>(){
 
@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
                 buttons[i].GetComponent<Button>().onClick.AddListener(() => optionChosen(tempI));
             }
 
-            addDialogue();
+            //addDialogue();
 
             startDialogue(currentDialogue);
 
