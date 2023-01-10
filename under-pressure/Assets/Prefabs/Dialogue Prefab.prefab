@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3022694105145630177
+--- !u!1 &6373947285724136980
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4701732570000381579}
-  - component: {fileID: 3471962782360244336}
+  - component: {fileID: 3511087882988785022}
+  - component: {fileID: 4731287381834845061}
   m_Layer: 0
   m_Name: Dialogue Prefab
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4701732570000381579
+--- !u!4 &3511087882988785022
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3022694105145630177}
+  m_GameObject: {fileID: 6373947285724136980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3471962782360244336
+--- !u!114 &4731287381834845061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3022694105145630177}
+  m_GameObject: {fileID: 6373947285724136980}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 699605e96ed6b544dac5f52193b33a98, type: 3}
@@ -51,266 +51,900 @@ MonoBehaviour:
   - Agent
   - Captain
   dialogues:
-  - text: 'Greetings, transport module 589, your shipment has been received at the
+  - text: Greetings, transport module 589, your shipment has been received at the
       port.
-
-
-      Your next instruction is to deliver 120 crates of Ferrotassium
-      to the Telite republic at the Barren Oceans.
-
-
-      Keep on your guard, our
-      shipments do not usually cruise here, make sure to not bring any unwanted crew
-      on-board, understood?
-
-
-      A detailed view of your path has been uploaded
-      to your navigation desk.
-
-
-      Good luck Captain. Over and out.'
     character: Overseer
-    choices: []
-  - text: 'Please kind sir, let us board your vessel!
+    choices:
+    - text: Next
+      nextDialogueUnit: 1
+      flags: []
+  - text: Your next instruction is to deliver 120 crates of Ferrotassium to the Galthix
+      republic at the Barren Oceans.
+    character: Overseer
+    choices:
+    - text: Next
+      nextDialogueUnit: 2
+      flags: []
+  - text: Keep on your guard, our shipments do not usually cruise here, make sure
+      to not bring any unwanted people on-board, understood?
+    character: Overseer
+    choices:
+    - text: Next
+      nextDialogueUnit: 3
+      flags: []
+  - text: 'A view of your path has been uploaded to your navigation table.
 
 
-      Our child is starving
-      and we have no other way to our destination!
-
-
-      Please, rescue us, you
-      know how the new government treats people like us!'
+      Good
+      luck. Over and out.'
+    character: Overseer
+    choices:
+    - text: End call
+      nextDialogueUnit: 4
+      flags:
+      - Overseer 1 end
+  - text: Please kind sir, let us board your vessel!
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 5
+      flags: []
+  - text: Our child is starving and we have no other way to our destination!
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 6
+      flags: []
+  - text: Please, rescue us, you know how the new government treats people like us!
     character: Family
     choices:
     - text: No
-      nextDialogueUnit: 2
-      flags: []
-    - text: Yes
-      nextDialogueUnit: 3
+      nextDialogueUnit: 7
       flags:
-      - Family
-  - text: But sir-! *Communication closes abruptly*
-    character: Family
-    choices: []
-  - text: You have our thanks! Where can we stay?
+      - Family no
+    - text: Yes
+      nextDialogueUnit: 8
+      flags:
+      - Family yes
+  - text: But sir-!
     character: Family
     choices:
-    - text: Cargo Bay
-      nextDialogueUnit: 0
+    - text: End call
+      nextDialogueUnit: 9
       flags:
-      - Family in cargo
+      - Family end
+  - text: Thank you kind sir! Where can we stay?
+    character: Family
+    choices:
+    - text: Cargo bay
+      nextDialogueUnit: 9
+      flags:
+      - Family end
+      - Family in cargo bay
     - text: Cleaning closet
-      nextDialogueUnit: 0
+      nextDialogueUnit: 9
       flags:
+      - Family end
       - Family in cleaning closet
     - text: Backup sleeping quarter
-      nextDialogueUnit: 0
+      nextDialogueUnit: 9
       flags:
+      - Family end
       - Family in backup sleeping quarter
-  - text: 'I do not have time for dabble, I require a transport to the Kothos Republic
+  - text: I do not have time for dabble, I require a transport to the Kothos Republic
       at once! I have important meetings to attend to.
-
-
-      I will pay you 280
-      thousand Kropos if you take me there.
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 10
+      flags: []
+  - text: 'I will pay you 280 thousand Kropos if you take me there.
 
 
       Well?'
     character: Aristocrat
     choices:
     - text: No
-      nextDialogueUnit: 5
-      flags: []
-    - text: Yes
-      nextDialogueUnit: 6
+      nextDialogueUnit: 11
       flags:
-      - Aristocrat
-  - text: You will regret this! *muttering*
+      - Aristocrat no
+    - text: Yes
+      nextDialogueUnit: 12
+      flags:
+      - Aristocrat yes
+  - text: "You will regret this\u2026!"
     character: Aristocrat
-    choices: []
-  - text: "Naturally. \n\nInform me of your most suited quarters for residence."
+    choices:
+    - text: End call
+      nextDialogueUnit: 13
+      flags:
+      - Aristocrat end
+  - text: Naturally. Inform me of your most suited quarters for residence.
     character: Aristocrat
     choices:
     - text: Cargo bay
-      nextDialogueUnit: 0
+      nextDialogueUnit: 13
       flags:
+      - Aristocrat end
       - Aristocrat in cargo bay
     - text: Cleaning closet
-      nextDialogueUnit: 0
+      nextDialogueUnit: 13
       flags:
-      - Aristocrat in cargo bay
+      - Aristocrat end
+      - Aristocrat in cleaning closet
     - text: Backup sleeping quarter
-      nextDialogueUnit: 0
+      nextDialogueUnit: 13
       flags:
+      - Aristocrat end
       - Aristocrat in backup sleeping quarter
-  - text: 'Greetings, transport module 589, you may approach the dock.
-
-
-      Very
-      good, Captain. I will send a team to assist with the cargo transfer and any
-      other needs you may have.
-
-
-      Safe travels Captain.'
+  - text: Greetings, transport module 589, you may approach the dock.
     character: Overseer
-    choices: []
-  - text: 'Captain, I am an agent of the Kothos Republic, my badge number is K9G7D54.
-
-
-      Under
-      the decree of our Supreme Leader Urilius, I demand passage to Belium Station.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 14
+      flags:
+      - Docking sound
+  - text: Very good, Captain. I will send a team to assist with the cargo transfer
+      and any other needs you may have.
+    character: Overseer
+    choices:
+    - text: End call
+      nextDialogueUnit: 15
+      flags:
+      - Overseer 2 end
+  - text: Captain, I am an agent of the Kothos Republic, my badge number is K9G7D54,
+      under the decree of our Supreme Leader Urilius I demand passage to Belium Station.
     character: Agent
-    choices: []
-  - text: I'm sorry, but we are only authorised to transport cargo and crew. Transporting
-      passengers is strictly prohibited.
+    choices:
+    - text: No
+      nextDialogueUnit: 16
+      flags: []
+    - text: Yes
+      nextDialogueUnit: 17
+      flags: []
+  - text: Your vessel is the only one going in that direction in the next few days,
+      this requisitioning has already been approved. This is not a request.
     character: Agent
-    choices: []
-  - text: 'Captain, I am an agent of the Kothos Republic, my badge number is K9G7D54.
-
-
-      Under
-      the decree of our Supreme Leader Urilius, I demand passage to Belium Station.'
-    character: Agent
-    choices: []
-  - text: 'I see. In that case, come aboard.
-
-
-      You will have to stay in an
-      unoccupied area as the cargo can be temperamental at our depths.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 17
+      flags: []
+  - text: 'I understand, come aboard. '
     character: Captain
-    choices: []
-  - text: "There is something I need to tell you.\n\nThere is a stowaway family of
-      Meludes on board. The asked for passage and haven\u2019t given me any trouble.
-      I couldn\u2019t turn them away."
+    choices:
+    - text: Next
+      nextDialogueUnit: 18
+      flags: []
+  - text: I'll take my time to conduct a ruitine inspection during our travel. I
+      expect you and your men will to fully comply, and if there is anything you
+      need to tell me, now would be the time. I am not fond of surprises.
+    character: Agent
+    choices:
+    - text: Nothing out of the ordinary
+      nextDialogueUnit: 22
+      flags:
+      - Nothing out of the ordinary
+  - text: I'll take my time to conduct a ruitine inspection during our travel. I
+      expect you and your men will to fully comply, and if there is anything you
+      need to tell me, now would be the time. I am not fond of surprises.
+    character: Agent
+    choices:
+    - text: Nothing out of the ordinary
+      nextDialogueUnit: 22
+      flags:
+      - Nothing out of the ordinary
+    - text: Tell on the family
+      nextDialogueUnit: 23
+      flags:
+      - Tell on the family
+  - text: I'll take my time to conduct a ruitine inspection during our travel. I
+      expect you and your men will to fully comply, and if there is anything you
+      need to tell me, now would be the time. I am not fond of surprises.
+    character: Agent
+    choices:
+    - text: Nothing out of the ordinary
+      nextDialogueUnit: 22
+      flags:
+      - Nothing out of the ordinary
+    - text: Tell on the aristocrat
+      nextDialogueUnit: 27
+      flags:
+      - Tell on the aristocrat
+  - text: I'll take my time to conduct a ruitine inspection during our travel. I
+      expect you and your men will to fully comply, and if there is anything you
+      need to tell me, now would be the time. I am not fond of surprises.
+    character: Agent
+    choices:
+    - text: Nothing out of the ordinary
+      nextDialogueUnit: 22
+      flags:
+      - Nothing out of the ordinary
+    - text: Tell on the family
+      nextDialogueUnit: 23
+      flags:
+      - Tell on the family
+    - text: Tell on the aristocrat
+      nextDialogueUnit: 27
+      flags:
+      - Tell on the aristocrat
+    - text: Tell on both
+      nextDialogueUnit: 33
+      flags:
+      - Tell on both
+  - text: Very well, we'll talk more later.
+    character: Agent
+    choices:
+    - text: Next
+      nextDialogueUnit: 37
+      flags:
+      - Agent end
+  - text: There's something I need to tell you. There's is a stowaway family of Meludes
+      on board. They asked for passage and I couldn't turn them away with the state
+      they were in. They haven't caused any trouble since they joined.
     character: Captain
-    choices: []
+    choices:
+    - text: Next
+      nextDialogueUnit: 24
+      flags: []
   - text: Captain, you should know that smuggling is a serious crime. I will have
       to take the family into custody and investigate the matter further.
     character: Agent
-    choices: []
-  - text: 'I understand, Agent. I''m willing to accept the consequences of my actions.
+    choices:
+    - text: Next
+      nextDialogueUnit: 25
+      flags: []
+  - text: I understand, Agent. I'm willing to accept the consequences of my actions.
+      I wish you to treat the family fairly.
+    character: Captain
+    choices:
+    - text: Next
+      nextDialogueUnit: 26
+      flags: []
+  - text: 'Thank you for your cooperation, Captain, but the Republic''s laws is the
+      one thing I will not compromise on.
 
 
-      Just
-      please make sure the family is treated fairly.'
-    character: Captain
-    choices: []
-  - text: Thank you for your cooperation, Captain, but the Republic's laws are absolute.
+      We''ll talk more later.'
     character: Agent
-    choices: []
-  - text: "There is something I need to tell you, a Telite is on board. \n\nHe demanded
-      passage and I could not refuse, you know how these aristocrats can be."
+    choices:
+    - text: End call
+      nextDialogueUnit: 42
+      flags:
+      - Agent end
+  - text: There is something I need to tell you. There is a Telite on board. He demanded
+      passage and I could not refuse, you know how these aristocrats can be.
     character: Captain
-    choices: []
-  - text: "Captain, you should know that smuggling is a serious crime, especially
-      if it involves the likes of them. \n\nI will need to investigate the matter
-      further."
+    choices:
+    - text: Next
+      nextDialogueUnit: 28
+      flags: []
+  - text: Captain, you should know that smuggling is a serious crime, especially
+      if it involves the likes of them. I will need to investigate the matter further.
     character: Agent
-    choices: []
+    choices:
+    - text: Next
+      nextDialogueUnit: 29
+      flags: []
   - text: "I understand, Agent. I'm willing to accept the consequences of my actions.
-      \n\nI would appreciate it if you didn't tell him you got this information from
-      me."
+      But please don\u2019t tell him you got this information from me."
     character: Captain
-    choices: []
-  - text: 'In the light of that, I will only leave you with a fine and a warning
-      that the next time this happens you are going to lose a lot more than just
-      some profits.
-
-
-      At your age you should know better than this, maybe it
-      is time for you to retire before any accidents befall you.
-
-
-      These waters
-      can be dangerous.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 30
+      flags: []
+  - text: This instance can probably be solved through a fine and a warning, but
+      the next time this happens you are going to lose a lot more than just some
+      profits. At your age you should know better than this, maybe it is time for
+      you to retire before any accidents befall you, these waters can be dangerous.
     character: Agent
-    choices: []
-  - text: "Captain, learning that you had given in to illegal passengers once could
-      have been settled with a light punishment from the goodwill of telling me,
-      but I discovered more on board.\n\nLying to an official of the Kothos Republic
+    choices:
+    - text: End call
+      nextDialogueUnit: 42
+      flags:
+      - Agent end
+  - text: Captain, while in the middle of apprehending the family I found a Telite
+      had been hidden in the same space. Lying to an official of the Kothos Republic
       is tantamount to treason. I'm afraid I will have to arrest you for your involvement
-      in these crimes. \n\nSome time in the Karthal correction facility might put
-      you on the right path again, if you survive that is."
+      in these crimes. Some time in the correction facility in Karthal might put
+      you in the right path again, if you survive.
     character: Agent
-    choices: []
-  - text: "There is something I need to tell you.\n\nA Telite and a family of Meludes
-      are on board. One demanded passage and the others were in such a poor condition
+    choices:
+    - text: End call
+      nextDialogueUnit: 42
+      flags:
+      - Correction facility
+      - Agent end
+  - text: Captain, while in the middle of apprehending the Telite I found a Family
+      had been hidden in the same space. Lying to an official of the Kothos Republic
+      is tantamount to treason. I'm afraid I will have to arrest you for your involvement
+      in these crimes. Some time in the correction facility in Karthal might put
+      you in the right path again, if you survive.
+    character: Agent
+    choices:
+    - text: End call
+      nextDialogueUnit: 42
+      flags:
+      - Correction facility
+      - Agent end
+  - text: "There is something I need to tell you. A Telite and a family of Meludes
+      are on board. One demanded passage and the others were in such poor condition
       that I couldn\u2019t refuse."
     character: Captain
-    choices: []
-  - text: 'Captain, you should know that smuggling is a serious crime, especially
-      if it involves the likes of them.
-
-
-      I will have to take both the family
-      and the aristocrat into custody and investigate the matter further.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 34
+      flags: []
+  - text: Captain, you should know that smuggling is a serious crime, especially
+      if it involves the likes of them. I will have to take both the family and the
+      aristocrat into custody and investigate the matter further.
     character: Agent
-    choices: []
-  - text: 'I understand, Agent. I''m willing to accept the consequences of my actions.
-
-
-      I
-      would never disregard the Republics laws willingly, it will not repeat itself.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 35
+      flags: []
+  - text: I understand, Agent. I'm willing to accept the consequences of my actions.
+      I would never disregard the Republics laws willingly, my hand was forced this
+      time.
     character: Captain
-    choices: []
-  - text: 'In light of the circumstances I have no choice other than commandeering
-      this vessel.
-
-
-      I have contacted the local authorities so they can take
-      both the family and the aristocrat into custody at our next stop.
-
-
-      You
-      will be under my command for this mission, your sentence when we get back will
-      depend on your performance.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 36
+      flags: []
+  - text: In light of the circumstances I have no choice other than commandeering
+      this vessel. I have contacted the local authorities so they can take both the
+      family and the aristocrat into custody at our next stop. You will be under
+      my command for this mission, your sentence when we get back will depend on
+      your performance.
     character: Agent
-    choices: []
-  - text: Captain, may I have a word?
+    choices:
+    - text: End call
+      nextDialogueUnit: 42
+      flags:
+      - Under command
+      - Agent end
+  - text: I conducted an inspection of your vessel. Several of your safety protocols
+      are out of date, and some of your equipment is not properly maintained. This
+      is a serious breach of regulation in a government contracted submarine.
     character: Agent
-    choices: []
-  - text: Of course, are you comfortable in the quarters? Is there anything I can
-      do for you?
-    character: Captain
-    choices: []
-  - text: "I conducted an inspection of your vessel. \n\nSeveral of your safety protocols
-      are out of date, and some of your equipment is not properly maintained. \n\nThis
-      is a serious breach of regulation in a government contracted submarine."
-    character: Agent
-    choices: []
+    choices:
+    - text: Next
+      nextDialogueUnit: 38
+      flags: []
   - text: I'm sorry, Agent. We have been working hard to keep our ship in good condition,
-      but I see now that we have fallen behind on some of our normal procedures.
-      These are not easy waters to navigate.
+      but I see now that we have fallen behind on some of our normal procedures,
+      these are not easy waters to navigate.
     character: Captain
-    choices: []
-  - text: 'Captain, you should know that violating safety codes is a serious offence.
-      I am required to issue a fine for these violations.
-
-
-      Perhaps an arrangement
-      can be made as I need transportation beyond Belium Station.'
+    choices:
+    - text: Next
+      nextDialogueUnit: 39
+      flags: []
+  - text: Captain, you should know that violating safety codes is a serious offence.
+      I am required to issue a fine for these violations. Perhaps an arrangement
+      can be made as I need transportation beyond Belium Station.
     character: Agent
-    choices: []
+    choices:
+    - text: Next
+      nextDialogueUnit: 40
+      flags: []
   - text: As you see we have some repairs scheduled at the station, maybe if you
       help us field the costs we would be able to better accommodate your needs.
     character: Captain
-    choices: []
-  - text: "I will talk to the quartermaster when we get there to see what can be
-      done. \n\nHowever, this will further your debt to me."
+    choices:
+    - text: Next
+      nextDialogueUnit: 41
+      flags: []
+  - text: I will talk to the quartermaster when we get there to see what can be done.
+      However this will further your debt to me.
     character: Agent
-    choices: []
-  - text: 'Salutations transport module 589, I see this is your final destination,
+    choices:
+    - text: The end
+      nextDialogueUnit: 42
+      flags:
+      - Debt
+      - Agent end
+  - text: Salutations transport module 589, I see this is your final destination,
       welcome to the station, you can head over to dock 8.
-
-
-      Very good, Captain.
-      A crew will be there shortly to help with the transport of the Ferrotassium,
-      you came in good time.
-
-
-      Lodgings for the crew have been prepared while
-      maintenance is carried out.'
     character: Overseer
-    choices: []
+    choices:
+    - text: Next
+      nextDialogueUnit: 43
+      flags:
+      - Docking sound
+  - text: Good work, Captain. A crew will be there shortly to help with the transport
+      of the Ferrotassium, you came in good time.
+    character: Overseer
+    choices:
+    - text: Next
+      nextDialogueUnit: 44
+      flags: []
+  - text: Lodgings for the crew have been prepared while maintenance is carried out
+    character: Overseer
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - The End
+  - text: Thank you again for your hospitality! How can we help?
+    character: Family
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 52
+      flags: []
+    - text: Why do you need a ride?
+      nextDialogueUnit: 56
+      flags: []
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 60
+      flags: []
+    - text: Nevermind, have a good day
+      nextDialogueUnit: 0
+      flags:
+      - Family discussion end
+  - text: Is there anything else you'd like to know?
+    character: Family
+    choices:
+    - text: Why do you need a ride?
+      nextDialogueUnit: 57
+      flags:
+      - Family ride question
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 61
+      flags:
+      - Family comfort question
+    - text: No, I'm good.
+      nextDialogueUnit: 0
+      flags:
+      - Family discussion end
+  - text: Is there anything else you'd like to know?
+    character: Family
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 53
+      flags: []
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 62
+      flags: []
+    - text: No, I'm good.
+      nextDialogueUnit: 0
+      flags:
+      - Family discussion end
+  - text: Is there anything else you'd like to know?
+    character: Family
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 54
+      flags: []
+    - text: Why do you need a ride?
+      nextDialogueUnit: 58
+      flags: []
+    - text: No, I'm good.
+      nextDialogueUnit: 0
+      flags:
+      - Family discussion end
+  - text: Anything else?
+    character: Family
+    choices:
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 63
+      flags:
+      - Family comfort question
+    - text: No, I'm good.
+      nextDialogueUnit: 44
+      flags:
+      - Family discussion end
+  - text: Anything else?
+    character: Family
+    choices:
+    - text: Why do you need a ride?
+      nextDialogueUnit: 59
+      flags:
+      - Family ride question
+    - text: No, I'm good.
+      nextDialogueUnit: 0
+      flags:
+      - Family discussion end
+  - text: Anything else?
+    character: Family
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 55
+      flags: []
+    - text: No, I'm good.
+      nextDialogueUnit: 0
+      flags:
+      - Family discussion end
+  - text: Our son and mother have a sickness that our doctors refuse to cure for
+      us due to our race. He told us we need to go get a certification from the manufacturers
+      first.
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 46
+      flags: []
+  - text: Our son and mother have a sickness that our doctors refuse to cure for
+      us due to our race. He told us we need to go get a certification from the manufacturers
+      first.
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 49
+      flags: []
+  - text: Our son and mother have a sickness that our doctors refuse to cure for
+      us due to our race. He told us we need to go get a certification from the manufacturers
+      first.
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 50
+      flags: []
+  - text: Our son and mother have a sickness that our doctors refuse to cure for
+      us due to our race. He told us we need to go get a certification from the manufacturers
+      first.
+    character: Family
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Family dialogue end
+  - text: "We\u2019re poor! So much of our money has been drained to keep our sick
+      alive and fed. We don\u2019t have money for fancy vehicles\u2026"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 47
+      flags: []
+  - text: "We\u2019re poor! So much of our money has been drained to keep our sick
+      alive and fed. We don\u2019t have money for fancy vehicles\u2026"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 49
+      flags: []
+  - text: "We\u2019re poor! So much of our money has been drained to keep our sick
+      alive and fed. We don\u2019t have money for fancy vehicles\u2026"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 51
+      flags: []
+  - text: "We\u2019re poor! So much of our money has been drained to keep our sick
+      alive and fed. We don\u2019t have money for fancy vehicles\u2026"
+    character: Family
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Family dialogue end
+  - text: "I suppose\u2026 Could be worse\u2026"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 48
+      flags: []
+  - text: "I suppose\u2026 Could be worse\u2026"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 50
+      flags: []
+  - text: "I suppose\u2026 Could be worse\u2026"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 51
+      flags: []
+  - text: "I suppose\u2026 Could be worse\u2026"
+    character: Family
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Family dialogue end
+  - text: "We don\u2019t really expect luxury, but this place is damp and cold."
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 48
+      flags: []
+  - text: "We don\u2019t really expect luxury, but this place is damp and cold."
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 50
+      flags: []
+  - text: "We don\u2019t really expect luxury, but this place is damp and cold."
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 51
+      flags: []
+  - text: "We don\u2019t really expect luxury, but this place is damp and cold."
+    character: Family
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Family dialogue end
+  - text: "Oh yes! Our sick can have a proper rest and it\u2019s warm here! We so
+      much appreciate your kindness, sir!"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 48
+      flags: []
+  - text: "Oh yes! Our sick can have a proper rest and it\u2019s warm here! We so
+      much appreciate your kindness, sir!"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 50
+      flags: []
+  - text: "Oh yes! Our sick can have a proper rest and it\u2019s warm here! We so
+      much appreciate your kindness, sir!"
+    character: Family
+    choices:
+    - text: Next
+      nextDialogueUnit: 51
+      flags: []
+  - text: "Oh yes! Our sick can have a proper rest and it\u2019s warm here! We so
+      much appreciate your kindness, sir!"
+    character: Family
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Family dialogue end
+  - text: What do you want?
+    character: Aristocrat
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 80
+      flags: []
+    - text: Why do you need a ride?
+      nextDialogueUnit: 84
+      flags: []
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 88
+      flags: []
+    - text: Nothing, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: So, what more?
+    character: Aristocrat
+    choices:
+    - text: Why do you need a ride?
+      nextDialogueUnit: 85
+      flags: []
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 89
+      flags: []
+    - text: Nothing, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: So, what more?
+    character: Aristocrat
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 81
+      flags: []
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 90
+      flags: []
+    - text: Nothing, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: So, what more?
+    character: Aristocrat
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 82
+      flags: []
+    - text: Why do you need a ride?
+      nextDialogueUnit: 86
+      flags: []
+    - text: Nothing, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: Can you leave me alone now or do you still have questions?
+    character: Aristocrat
+    choices:
+    - text: Is the space to your comfort?
+      nextDialogueUnit: 91
+      flags: []
+    - text: Nothing more, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: Can you leave me alone now or do you still have questions?
+    character: Aristocrat
+    choices:
+    - text: Why do you need a ride?
+      nextDialogueUnit: 87
+      flags: []
+    - text: Nothing more, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: Can you leave me alone now or do you still have questions?
+    character: Aristocrat
+    choices:
+    - text: Why are you traveling?
+      nextDialogueUnit: 83
+      flags: []
+    - text: Nothing more, goodbye
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: I am travelling to the estate of Sir Blurts, you do not need to know the
+      details of my affairs
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 74
+      flags: []
+  - text: I am travelling to the estate of Sir Blurts, you do not need to know the
+      details of my affairs
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 77
+      flags: []
+  - text: I am travelling to the estate of Sir Blurts, you do not need to know the
+      details of my affairs
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 78
+      flags: []
+  - text: I am travelling to the estate of Sir Blurts, you do not need to know the
+      details of my affairs
+    character: Aristocrat
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: "Being discreet in my line of business has its advantages, as you should
+      know by how much I\u2019ve paid you"
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 75
+      flags: []
+  - text: "Being discreet in my line of business has its advantages, as you should
+      know by how much I\u2019ve paid you"
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 77
+      flags: []
+  - text: "Being discreet in my line of business has its advantages, as you should
+      know by how much I\u2019ve paid you"
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 79
+      flags: []
+  - text: "Being discreet in my line of business has its advantages, as you should
+      know by how much I\u2019ve paid you"
+    character: Aristocrat
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: Your supply of Ferrotasium seems to be quite decent, would you like to
+      part with a few crates? It is the least you could do after putting me in this
+      filth
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 76
+      flags: []
+  - text: Your supply of Ferrotasium seems to be quite decent, would you like to
+      part with a few crates? It is the least you could do after putting me in this
+      filth
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 78
+      flags: []
+  - text: Your supply of Ferrotasium seems to be quite decent, would you like to
+      part with a few crates? It is the least you could do after putting me in this
+      filth
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 79
+      flags: []
+  - text: Your supply of Ferrotasium seems to be quite decent, would you like to
+      part with a few crates? It is the least you could do after putting me in this
+      filth
+    character: Aristocrat
+    choices:
+    - text: End call
+      nextDialogueUnit: 0
+      flags:
+      - Aristocrat dialogue end
+  - text: "I will remember this treatment \u2018Captain\u2019, a place like this
+      is not suitable for someone of my stature."
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: "I will remember this treatment \u2018Captain\u2019, a place like this
+      is not suitable for someone of my stature."
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: "I will remember this treatment \u2018Captain\u2019, a place like this
+      is not suitable for someone of my stature."
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: "I will remember this treatment \u2018Captain\u2019, a place like this
+      is not suitable for someone of my stature."
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: This is adequate for a time, rather squalid, but it shall do.
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: This is adequate for a time, rather squalid, but it shall do.
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: This is adequate for a time, rather squalid, but it shall do.
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: This is adequate for a time, rather squalid, but it shall do.
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: Now I know why this place stinks, you keep rabble in your ship
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: Now I know why this place stinks, you keep rabble in your ship
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: Now I know why this place stinks, you keep rabble in your ship
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
+  - text: Now I know why this place stinks, you keep rabble in your ship
+    character: Aristocrat
+    choices:
+    - text: Next
+      nextDialogueUnit: 0
+      flags: []
   currentDialogue: 0
   buttons: []
