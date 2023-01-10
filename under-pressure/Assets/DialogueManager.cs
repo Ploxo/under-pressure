@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    private void startDialogue(int dialogueUnitId){
+    public void startDialogue(int dialogueUnitId){
 
         DialogueUnit dialogueUnit = dialogues[dialogueUnitId];
 
