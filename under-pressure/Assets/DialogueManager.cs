@@ -22,11 +22,18 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         
-            dialogues = new List<DialogueUnit>();
+            //dialogues = new List<DialogueUnit>();
 
             flags = new Dictionary<string, bool>(){
 
-                {"likes_apples", false},
+                {"Family", false},
+                {"Aristocrat", false},
+                {"Family in cargo bay", false},
+                {"Family in cleaning closet", false},
+                {"Family in backup sleeping quarter", false},
+                {"Aristocrat in cargo bay", false},
+                {"Aristocrat in cleaning closet", false},
+                {"Aristocrat in backup sleeping quarter", false}
 
             };
 
@@ -39,7 +46,7 @@ public class DialogueManager : MonoBehaviour
                 buttons[i].GetComponent<Button>().onClick.AddListener(() => optionChosen(tempI));
             }
 
-            addDialogue();
+            //addDialogue();
 
             startDialogue(currentDialogue);
 

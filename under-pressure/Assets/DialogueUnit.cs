@@ -7,10 +7,11 @@ public class DialogueUnit
 {
 
     //[SerializeField] public int id;
-    [SerializeField] public string text;
-    [SerializeField] public string character;
+    [TextArea(10, 10)]
+    public string text;
+    public string character;
 
-    [SerializeField] public List<ChoiceUnit> choices;
+    public List<ChoiceUnit> choices;
 
     public DialogueUnit(/*int newId,*/ string newText, string newCharacter, List<ChoiceUnit> newChoices){
 

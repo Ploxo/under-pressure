@@ -6,9 +6,10 @@ using UnityEngine;
 public class ChoiceUnit
 {
     // [SerializeField] public int _id;
-    [SerializeField] public string text;
-    [SerializeField] public int nextDialogueUnit;
-    [SerializeField] public List<string> flags;
+    [TextArea(10, 10)]
+    public string text;
+    public int nextDialogueUnit;
+    public List<string> flags;
 
     public ChoiceUnit(/*int id,*/ string newText, int newNextDialogueUnit, List<string> newFlags){
 
