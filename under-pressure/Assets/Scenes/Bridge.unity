@@ -1246,6 +1246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c4e0dee54ccf4e9f34c20d0ef2d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 577982483}
   intercomGreen: {fileID: 440043196}
   intercomOrange: {fileID: 1162739695}
   controlpanelRed: {fileID: 1552912514}
@@ -1448,6 +1449,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577982483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1656273669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc88091cb0a38e48bdadb411d9df1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &594885425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2544323676277987421, guid: 6164da9dc12f5244fb2d39852c89c505,

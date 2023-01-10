@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
+    [SerializeField] ButtonInteractable button;
 
     [SerializeField] Light intercomGreen;
     [SerializeField] Light intercomOrange;
@@ -20,6 +21,7 @@ public class Gamemanager : MonoBehaviour
     void Start()
     {
         //dialogue.flags[2];
+        initializeIntercom();
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class Gamemanager : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            intializeIntercom();
+            initializeIntercom();
             intercomGreen.intensity = 1.27f;
             intercomOrange.intensity = 1.27f;
             controlpanelRed.intensity = 0f;
@@ -52,11 +54,15 @@ public class Gamemanager : MonoBehaviour
 }
 
     //This function should be called every time the Intercom is initiated, I.e. at the start of every game state
-    private void intializeIntercom()
+    private void initializeIntercom()
     {
 
-        // Deactivate console button
+        // Activate dialogue window
         dialogueWindow.SetActive(true);
+
+        // Deactivate console button
+        button.enabled = false;
+
         // Set active dialogue
         dialogue.startDialogue(gameStateID);
 
@@ -69,6 +75,8 @@ public class Gamemanager : MonoBehaviour
         intercomGreen.intensity = 1.27f;
         intercomOrange.intensity = 1.27f;
 
+        // Deactivate console light
+        controlpanelRed.intensity = 0f;
     }
 
     // This function will be called every time a conversation has been completed. 
@@ -77,10 +85,15 @@ public class Gamemanager : MonoBehaviour
         // Disables dialogue window
         dialogueWindow.SetActive(false);
 
+        // Deactivate console button
+        button.enabled = true;
 
         //dialogue.startDialogue(0);
         intercomGreen.intensity = 0f;
         intercomOrange.intensity = 0f;
+
+        // Activate console light
+        controlpanelRed.intensity = 1.27f;
     }
 
 }
