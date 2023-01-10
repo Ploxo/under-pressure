@@ -113,12 +113,12 @@ public class ButtonInteractable : XRBaseInteractable
         // Detect a positive change in activation state
         if (isPressed && !wasPressedLastFrame)
         {
-            Debug.Log("Detected press");
+            //Debug.Log("Detected press");
             OnPress.Invoke();
         }
         else if (!isPressed && wasPressedLastFrame)
         {
-            Debug.Log("Detected release");
+            //Debug.Log("Detected release");
             OnRelease.Invoke();
         }
 
