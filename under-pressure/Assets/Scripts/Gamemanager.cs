@@ -24,6 +24,8 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] GameObject dialogueWindow;
 
     [SerializeField] AudioSource dockingSound;
+    [SerializeField] AudioSource beepSound;
+
 
     private int gameStateID = 0;
 
@@ -73,7 +75,7 @@ public class Gamemanager : MonoBehaviour
         if (dialogue.flags["Docking sound"] == true)
         {
             dockingSound.Play();
-            dialogue.flags["Dialogue sound"] = false;
+            dialogue.flags["Docking sound"] = false;
         }
 
         CheckCloseDialogue();
@@ -148,6 +150,7 @@ public class Gamemanager : MonoBehaviour
     {
         intercomReady = true;
         intercomOrange.intensity = 1.27f;
+        beepSound.Play();
     }
 
     public void UnreadyIntercom()

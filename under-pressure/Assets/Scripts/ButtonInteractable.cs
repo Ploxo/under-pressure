@@ -93,7 +93,7 @@ public class ButtonInteractable : XRBaseInteractable
     // Local y position allows any orientation of the button to work
     private float GetLocalYPosition(Vector3 position)
     {
-        Vector3 localPosition = buttonTransform.root.InverseTransformPoint(position);
+        Vector3 localPosition = buttonTransform.InverseTransformPoint(position);
 
         return localPosition.y;
     }
