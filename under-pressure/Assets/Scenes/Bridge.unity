@@ -799,15 +799,7 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-<<<<<<< HEAD
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7243659633722034794, guid: c7ff340fdb44cf141ae9de9c6c16bf63,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 640829034}
-=======
     m_AddedGameObjects: []
->>>>>>> 1e75f6d89b417058738a4ec8676262fc9ffc700e
   m_SourcePrefab: {fileID: 100100000, guid: c7ff340fdb44cf141ae9de9c6c16bf63, type: 3}
 --- !u!224 &78910925 stripped
 RectTransform:
@@ -2003,11 +1995,7 @@ MonoBehaviour:
   dialogueWindow: {fileID: 940463137}
   dockingSound: {fileID: 1384106781}
   beepSound: {fileID: 931597162}
-<<<<<<< HEAD
-  engineSound: {fileID: 0}
-=======
   engineSound: {fileID: 954062565}
->>>>>>> 1e75f6d89b417058738a4ec8676262fc9ffc700e
 --- !u!4 &395306277
 Transform:
   m_ObjectHideFlags: 0
