@@ -21,7 +21,7 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] PanelFade fader;
     [SerializeField] PanelFade endFader;
 
-    [SerializeField] TextMeshPro endText;
+    [SerializeField] TMP_Text endText;
 
     [SerializeField] AudioSource ambience;
     [SerializeField] DialogueManager dialogue;
@@ -37,12 +37,9 @@ public class Gamemanager : MonoBehaviour
 
     private int gameStateID = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
-        //dialogue.flags[2];
-        //initializeIntercom();
+        endings = new List<string>();
 
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. What happened to the Family or the Arristocrat we will never know. To be Continued...");
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Family managed to hide from the agent and sneak off the ship safely. What happened to the Aristocrat we will never know. To be Continued...");
@@ -52,6 +49,14 @@ public class Gamemanager : MonoBehaviour
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat managed to hide from the Agent and sneak off the ship safely. The Captain got off lightly with a small fine and a warning. To be Continued...");
         endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To be Continued...");
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To be Continued...");
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        //dialogue.flags[2];
+        //initializeIntercom();
 
         SwapScreen(0);
 
