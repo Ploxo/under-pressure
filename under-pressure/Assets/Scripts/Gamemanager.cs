@@ -14,6 +14,7 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] DialogueManager dialogue;
     [SerializeField] GameObject dialogueWindow;
 
+    [SerializeField] AudioSource dockingSound;
 
     private int gameStateID = 0;
 
@@ -21,7 +22,8 @@ public class Gamemanager : MonoBehaviour
     void Start()
     {
         //dialogue.flags[2];
-        initializeIntercom();
+        //initializeIntercom();
+        deactivateIntercom();
     }
 
     // Update is called once per frame
@@ -48,13 +50,42 @@ public class Gamemanager : MonoBehaviour
         // How to get a specific flag from the list of flags
         /*
         if (dialogue.flags["Family"]){
-         // Family on board
+          Family on board
         }
         */
-}
+
+        if (dialogue.flags["Docking sound"] == true)
+        {
+            dockingSound.Play();
+            dialogue.flags["Dialogue sound"] = false;
+        }
+
+        CheckCloseDialogue();
+    }
+
+    private void UpdateDialogue(int gameStateID)
+    {
+        
+    }
+
+    private void CheckCloseDialogue()
+    {
+        foreach (KeyValuePair<string, bool> kvp in dialogue.flags)
+        {
+            if (kvp.Value)
+            {
+                if (kvp.Key.Contains(" end") && !kvp.Key.Contains("The"))
+                {
+                    deactivateIntercom();
+                    dialogue.flags[kvp.Key] = false;
+                    break;
+                }
+            }
+        }
+    }
 
     //This function should be called every time the Intercom is initiated, I.e. at the start of every game state
-    private void initializeIntercom()
+    public void initializeIntercom()
     {
 
         // Activate dialogue window
@@ -64,13 +95,8 @@ public class Gamemanager : MonoBehaviour
         button.enabled = false;
 
         // Set active dialogue
-        dialogue.startDialogue(gameStateID);
+        UpdateDialogue(gameStateID);
 
-        // Prepare next gamestate
-        if (gameStateID < 3)
-        {
-            gameStateID++;
-        }
         // Activate green and orange Intercom lights
         intercomGreen.intensity = 1.27f;
         intercomOrange.intensity = 1.27f;
@@ -80,7 +106,7 @@ public class Gamemanager : MonoBehaviour
     }
 
     // This function will be called every time a conversation has been completed. 
-    private void deactivateIntercom()
+    public void deactivateIntercom()
     {
         // Disables dialogue window
         dialogueWindow.SetActive(false);

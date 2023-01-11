@@ -5,7 +5,6 @@ using UnityEngine;
 // Example button class that shows how to use the custom ButtonInteractable
 public class ExampleButton : MonoBehaviour
 {
-    [SerializeField] Light selfLight;
     [SerializeField] ButtonInteractable interactable;
 
 
@@ -30,14 +29,12 @@ public class ExampleButton : MonoBehaviour
     // If true, will allow the interactable to interact and fire events; if false it becomes uninteractable
     public void SetButtonReady(bool value)
     {
-        selfLight.enabled = value;
         interactable.enabled = value;
     }
 
     // Triggered by the interactable press event, which is wired up in the Inspector of the interactable GameObject
     public void Activate()
     {
-        selfLight.enabled = false;
         // Do other stuff
     }
 
