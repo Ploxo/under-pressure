@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
 
 
     [SerializeField] public List<GameObject> buttons;
-
+    [SerializeField] public List<Material> imageMaterials;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +96,33 @@ public class DialogueManager : MonoBehaviour
 
         GameObject.Find("Dialogue/TextPanel/Text").GetComponent<TextMeshProUGUI>().text = dialogueUnit.text;
 
+        Material charactersMaterial;
+
+        switch (dialogueUnit.character)
+        {
+            case "Agent": 
+                charactersMaterial = imageMaterials[0];
+                break;
+
+            case "Aristocrat": 
+                charactersMaterial = imageMaterials[1];
+                break;
+
+            case "Family": 
+                charactersMaterial = imageMaterials[2];
+                break;
+
+            case "Overseer": 
+                charactersMaterial = imageMaterials[3];
+                break;
+
+            default: 
+                charactersMaterial = imageMaterials[4];
+                break;
+        
+        }
+
+        GameObject.Find("Scenery/screen").GetComponent<Renderer>().material = charactersMaterial;
     }
 
     private void optionChosen(int buttonIndex){

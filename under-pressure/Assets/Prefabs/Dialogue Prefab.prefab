@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8526011400911388652
+--- !u!1 &8475521871221127369
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2206577625619395718}
-  - component: {fileID: 8038465417081664125}
+  - component: {fileID: 2112811261953504163}
+  - component: {fileID: 7801146856630302040}
   m_Layer: 0
   m_Name: Dialogue Prefab
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2206577625619395718
+--- !u!4 &2112811261953504163
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8526011400911388652}
+  m_GameObject: {fileID: 8475521871221127369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8038465417081664125
+--- !u!114 &7801146856630302040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8526011400911388652}
+  m_GameObject: {fileID: 8475521871221127369}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 699605e96ed6b544dac5f52193b33a98, type: 3}
@@ -953,8 +953,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  images:
-  - {fileID: 21300000, guid: de12fdd9d263a2446bdd26af7f1fb7ff, type: 3}
-  - {fileID: 21300000, guid: ca9b23955e56d61469ab6c19203c6f1d, type: 3}
-  - {fileID: 21300000, guid: b0949636d4e98c2448882b45004fb401, type: 3}
-  - {fileID: 21300000, guid: 689ebdb472e8b1442a16fb01b20833ac, type: 3}
+  imageMaterials:
+  - {fileID: 2100000, guid: 68ba7f6404228b64fbf4b5eb99400062, type: 2}
+  - {fileID: 2100000, guid: b4300ae209a222941b5e4e1a2d1222dd, type: 2}
+  - {fileID: 2100000, guid: a3dfe46b6db513c4990ae235e7924b52, type: 2}
+  - {fileID: 2100000, guid: ca9b3a5d132cf214a8f604512208f08f, type: 2}
+  - {fileID: 2100000, guid: 61d364baeec657747b777e553eb3f667, type: 2}
