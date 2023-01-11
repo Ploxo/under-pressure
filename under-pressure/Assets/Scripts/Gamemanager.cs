@@ -10,6 +10,8 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] Light intercomOrange;
     [SerializeField] Light controlpanelRed;
     [SerializeField] LightButton mainButton;
+    [SerializeField] Renderer intercomScreen;
+    [SerializeField] Material baseScreen;
 
     [SerializeField] MeshRenderer tableScreen;
     [SerializeField] Material[] screens;
@@ -31,11 +33,14 @@ public class Gamemanager : MonoBehaviour
         //dialogue.flags[2];
         //initializeIntercom();
 
-        //fader.TurnOff();
         SwapScreen(0);
 
         deactivateIntercom();
         UnreadyIntercom();
+
+        mainButton.SetButtonReady(false);
+        // Delay the intercom for a bit
+        Invoke("ReadyIntercom", 5f);
     }
 
     // Update is called once per frame
@@ -68,11 +73,6 @@ public class Gamemanager : MonoBehaviour
         CheckCloseDialogue();
     }
 
-    private void UpdateDialogue(int gameStateID)
-    {
-        
-    }
-
     private void CheckCloseDialogue()
     {
         foreach (KeyValuePair<string, bool> kvp in dialogue.flags)
@@ -96,9 +96,6 @@ public class Gamemanager : MonoBehaviour
         fader.ShowPanel();
         StopAllCoroutines();
         StartCoroutine(WaitForPanel(fader.durationFadeIn, 2f, fader.durationFadeOut));
-
-        // Delay the intercom for a bit
-        Invoke("ReadyIntercom", 5f);
     }
 
     IEnumerator WaitForPanel(float fadeInTime, float waitTime, float fadeOutTime)
@@ -126,6 +123,9 @@ public class Gamemanager : MonoBehaviour
             fadeOutTime -= Time.deltaTime;
             yield return null;
         }
+
+        // Delay the intercom for a bit
+        Invoke("ReadyIntercom", 5f);
     }
 
     private void SwapScreen(int index)
@@ -173,9 +173,6 @@ public class Gamemanager : MonoBehaviour
         // Deactivate console button
         button.enabled = false;
 
-        // Set active dialogue
-        UpdateDialogue(gameStateID);
-
         // Activate green and orange Intercom lights
         intercomGreen.intensity = 1.27f;
         //intercomOrange.intensity = 1.27f;
@@ -188,6 +185,10 @@ public class Gamemanager : MonoBehaviour
 
         // Disables dialogue window
         dialogueWindow.SetActive(false);
+
+        var mats = intercomScreen.materials;
+        mats[1] = baseScreen;
+        intercomScreen.materials = mats;
 
         // Set control panel button ready
         mainButton.SetButtonReady(true);

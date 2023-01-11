@@ -10,7 +10,7 @@ public class LightButton : MonoBehaviour
 
     private void Start()
     {
-        SetButtonReady(true);
+        SetButtonReady(false);
     }
 
     private void OnEnable()

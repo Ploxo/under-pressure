@@ -19,9 +19,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public List<Material> imageMaterials;
 
     private int agentSound = 0;
-    private int aristocrat = 0;
-    private int family = 0;
-    private int overseer = 0;
+    private int aristocratSound = 0;
+    private int familySound = 0;
+    private int overseerSound = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -107,22 +107,22 @@ public class DialogueManager : MonoBehaviour
         {
             case "Agent": 
                 charactersMaterial = imageMaterials[0];
-                playCharacterSound("Agent")
+                playCharacterSound("Agent");
                 break;
 
             case "Aristocrat": 
                 charactersMaterial = imageMaterials[1];
-                playCharacterSound("Aristocrat")
+                playCharacterSound("Aristocrat");
                 break;
 
             case "Family": 
                 charactersMaterial = imageMaterials[2];
-                playCharacterSound("Family")
+                playCharacterSound("Family");
                 break;
 
             case "Overseer": 
                 charactersMaterial = imageMaterials[3];
-                playCharacterSound("Overseer")
+                playCharacterSound("Overseer");
                 break;
 
             default: 
@@ -131,8 +131,13 @@ public class DialogueManager : MonoBehaviour
         
         }
 
-        GameObject.Find("Scenery/screen").GetComponent<Renderer>().material = charactersMaterial;
+        Renderer rend = GameObject.Find("Scenery/screen").GetComponent<Renderer>();
+
+        var mats = rend.materials;
+        mats[1] = charactersMaterial;
+        rend.materials = mats;
     }
+
 
     private void playCharacterSound(string character)
     {
@@ -140,73 +145,73 @@ public class DialogueManager : MonoBehaviour
         {
             case "Agent":
                 if (agentSound == 0) {
-                    GameObject.Find("Sounds/AgentSounds/agentSound1").Play();                
+                    GameObject.Find("Sounds/AgentSounds/agentSound1").GetComponent<AudioSource>().Play();                
                 }
                 if (agentSound == 1)
                 {
-                    GameObject.Find("Sounds/AgentSounds/agentSound2").Play();
+                    GameObject.Find("Sounds/AgentSounds/agentSound2").GetComponent<AudioSource>().Play();
                 }
                 if (agentSound == 2)
                 {
-                    GameObject.Find("Sounds/AgentSounds/agentSound3").Play();
+                    GameObject.Find("Sounds/AgentSounds/agentSound3").GetComponent<AudioSource>().Play();
                 }
                 if (agentSound == 3)
                 {
-                    GameObject.Find("Sounds/AgentSounds/agentSound4").Play();
+                    GameObject.Find("Sounds/AgentSounds/agentSound4").GetComponent<AudioSource>().Play();
                 }
-                agentSound = (agentSound + 1) % 4
+                agentSound = (agentSound + 1) % 4;
                 break;
 
             case "Aristocrat":
                 if (aristocratSound == 0)
                 {
-                    GameObject.Find("Sounds/AristocratSounds/aristocratSound1").Play();
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound1").GetComponent<AudioSource>().Play();
                 }
                 if (aristocratSound == 1)
                 {
-                    GameObject.Find("Sounds/AristocratSounds/aristocratSound2").Play();
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound2").GetComponent<AudioSource>().Play();
                 }
                 if (aristocratSound == 2)
                 {
-                    GameObject.Find("Sounds/AristocratSounds/aristocratSound3").Play();
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound3").GetComponent<AudioSource>().Play();
                 }
                 if (aristocratSound == 3)
                 {
-                    GameObject.Find("Sounds/AristocratSounds/aristocratSound4").Play();
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound4").GetComponent<AudioSource>().Play();
                 }
-                aristocratSound = (aristocratSound + 1) % 4
+                aristocratSound = (aristocratSound + 1) % 4;
                 break;
 
             case "Family":
                 if (familySound == 0)
                 {
-                    GameObject.Find("Sounds/FamilySounds/familySound1").Play();
+                    GameObject.Find("Sounds/FamilySounds/familySound1").GetComponent<AudioSource>().Play();
                 }
                 if (familySound == 1)
                 {
-                    GameObject.Find("Sounds/FamilySounds/familySound2").Play();
+                    GameObject.Find("Sounds/FamilySounds/familySound2").GetComponent<AudioSource>().Play();
                 }
                 if (familySound == 2)
                 {
-                    GameObject.Find("Sounds/FamilySounds/familySound3").Play();
+                    GameObject.Find("Sounds/FamilySounds/familySound3").GetComponent<AudioSource>().Play();
                 }
-                familySound = (familySound + 1) % 3
+                familySound = (familySound + 1) % 3;
                 break;
 
             case "Overseer":
                 if (overseerSound == 0)
                 {
-                    GameObject.Find("Sounds/OverseerSounds/overseerSound1").Play();
+                    GameObject.Find("Sounds/OverseerSounds/overseerSound1").GetComponent<AudioSource>().Play();
                 }
                 if (overseerSound == 1)
                 {
-                    GameObject.Find("Sounds/OverseerSounds/overseerSound2").Play();
+                    GameObject.Find("Sounds/OverseerSounds/overseerSound2").GetComponent<AudioSource>().Play();
                 }
                 if (overseerSound == 2)
                 {
-                    GameObject.Find("Sounds/OverseerSounds/overseerSound3").Play();
+                    GameObject.Find("Sounds/OverseerSounds/overseerSound3").GetComponent<AudioSource>().Play();
                 }
-                overseerSound = (overseerSound + 1) % 3
+                overseerSound = (overseerSound + 1) % 3;
                 break;
 
             default:
