@@ -33,11 +33,14 @@ public class Gamemanager : MonoBehaviour
 
     private List<string> endings;
 
+    private bool initialStart = true;
+
     private int gameStateID = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+
         //dialogue.flags[2];
         //initializeIntercom();
 
@@ -274,6 +277,7 @@ public class Gamemanager : MonoBehaviour
 
     public void ReadyMainButton()
     {
+        Debug.Log("Hallo I am ready");
         mainButton.SetButtonReady(true);
     }
 
@@ -312,7 +316,11 @@ public class Gamemanager : MonoBehaviour
         intercomScreen.materials = mats;
 
         // Set control panel button ready
-        mainButton.SetButtonReady(true);
+        if (!initialStart){
+            mainButton.SetButtonReady(true);
+        }
+        
+        initialStart = false;
 
         //dialogue.startDialogue(0);
         intercomGreen.intensity = 0f;
