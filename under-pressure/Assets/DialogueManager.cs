@@ -22,9 +22,9 @@ public class DialogueManager : MonoBehaviour
     private int familySound = 0;
     private int overseerSound = 0;
 
-<<<<<<< HEAD
-    private List<String> endings;
-=======
+
+    private List<string> endings;
+
     void Awake(){
 
         flags = new Dictionary<string, bool>(){
@@ -52,51 +52,13 @@ public class DialogueManager : MonoBehaviour
             {"The end", false},
             {"Family dialogue end", false},
             {"Aristocrat dialogue end", false},
-
+            {"Ending 1", false},
+            {"Ending 2", false},
+            {"Ending 3", false},
+            {"Ending 4", false},
+            {"Ending 5", false},
+            {"Ending 6", false},
         };
-
-    }
->>>>>>> main
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-            //dialogues = new List<DialogueUnit>();
-
-<<<<<<< HEAD
-            flags = new Dictionary<string, bool>(){
-
-                {"Overseer 1 end", false},
-                {"Family yes", false},
-                {"Family end", false},
-                {"Family in cargo bay", false},
-                {"Family in cleaning closet", false},
-                {"Family in backup sleeping quarter", false},
-                {"Aristocrat yes", false},
-                {"Aristocrat end", false},
-                {"Aristocrat in cargo bay", false},
-                {"Aristocrat in cleaning closet", false},
-                {"Aristocrat in backup sleeping quarter", false},
-                {"Docking sound", false},
-                {"Overseer 2 end", false},
-                {"Nothing out of the ordinary", false},
-                {"Tell on the family", false},
-                {"Tell on the aristocrat", false},
-                {"Tell on both", false},
-                {"Agent end", false},
-                {"Under command", false},
-                {"Debt", false},
-                {"The end", false},
-                {"Family dialogue end", false},
-                {"Aristocrat dialogue end", false},
-                {"Ending 1", false},
-                {"Ending 2", false},
-                {"Ending 3", false},
-                {"Ending 4", false},
-                {"Ending 5", false},
-                {"Ending 6", false},
-            };
 
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. What happened to the Family or the Arristocrat we will never know. To be Continued...");
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Family managed to hide from the agent and sneak off the ship safely. What happened to the Aristocrat we will never know. To be Continued...");
@@ -106,9 +68,13 @@ public class DialogueManager : MonoBehaviour
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat managed to hide from the Agent and sneak off the ship safely. The Captain got off lightly with a small fine and a warning. To be Continued...");
         endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To be Continued...");
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To be Continued...");
+    
+    }
 
-=======
->>>>>>> main
+    // Start is called before the first frame update
+    void Start()
+    {
+
         for (int i = 0; i < buttons.Count; i++)
         {
 
@@ -134,45 +100,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        if (currentDialogue == 18 && flags["Family yes"] && !flags["Aristocrat yes"])
-        {
-            startDialogue(19);
-        }
-        else if (currentDialogue == 18 && !flags["Family yes"] && flags["Aristocrat yes"])
-        {
-            startDialogue(20);
-        }
-        else if (currentDialogue == 18 && flags["Family yes"] && flags["Aristocrat yes"])
-        {
-            startDialogue(21);
-        }
 
-        if (flags["The end"] && flags["Ending 1"])
-        {
-            
-        }
-        else if (flags["The end"] && flags["Ending 2"])
-        {
-
-        }
-        else if (flags["The end"] && flags["Ending 3"])
-        {
-
-        }
-        else if (flags["The end"] && flags["Ending 4"])
-        {
-
-        }
-        else if (flags["The end"] && flags["Ending 5"])
-        {
-
-        }
-        else if (flags["The end"] && flags["Ending 6"])
-        {
-
-        }
-=======
         checkFlags();
     }
 
@@ -206,7 +134,30 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
->>>>>>> main
+        if (flags["The end"] && flags["Ending 1"])
+        {
+            
+        }
+        else if (flags["The end"] && flags["Ending 2"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 3"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 4"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 5"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 6"])
+        {
+
+        }
     }
 
     public void startDialogue(int dialogueUnitId){
