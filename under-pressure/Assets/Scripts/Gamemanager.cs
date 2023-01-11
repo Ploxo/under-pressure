@@ -15,6 +15,8 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] Material[] screens;
     [SerializeField] int screenIndex = 0;
 
+    [SerializeField] PanelFade fader;
+
     [SerializeField] AudioSource ambience;
     [SerializeField] DialogueManager dialogue;
     [SerializeField] GameObject dialogueWindow;
@@ -29,6 +31,7 @@ public class Gamemanager : MonoBehaviour
         //dialogue.flags[2];
         //initializeIntercom();
 
+        //fader.TurnOff();
         SwapScreen(0);
 
         deactivateIntercom();
@@ -55,13 +58,6 @@ public class Gamemanager : MonoBehaviour
         //    intercomOrange.intensity = 0f;
         //    controlpanelRed.intensity = 1.27f;
         //}
-
-        // How to get a specific flag from the list of flags
-        /*
-        if (dialogue.flags["Family"]){
-          Family on board
-        }
-        */
 
         if (dialogue.flags["Docking sound"] == true)
         {
@@ -97,12 +93,39 @@ public class Gamemanager : MonoBehaviour
     public void PlayTransition()
     {
         // Play the transition here
-
-        // Update stuff during transition
-        SwapScreen((++screenIndex) % screens.Length);
+        fader.ShowPanel();
+        StopAllCoroutines();
+        StartCoroutine(WaitForPanel(fader.durationFadeIn, 2f, fader.durationFadeOut));
 
         // Delay the intercom for a bit
         Invoke("ReadyIntercom", 5f);
+    }
+
+    IEnumerator WaitForPanel(float fadeInTime, float waitTime, float fadeOutTime)
+    {
+        while (fadeInTime > 0f)
+        {
+            fadeInTime -= Time.deltaTime;
+            yield return null;
+        }
+
+        // Do stuff during fadeout
+        while (waitTime > 0f)
+        {
+            waitTime -= Time.deltaTime;
+            yield return null;
+        }
+
+        // Do stuff during wait
+        SwapScreen((++screenIndex) % screens.Length);
+
+        fader.HidePanel();
+
+        while (fadeOutTime > 0f)
+        {
+            fadeOutTime -= Time.deltaTime;
+            yield return null;
+        }
     }
 
     private void SwapScreen(int index)
@@ -156,9 +179,6 @@ public class Gamemanager : MonoBehaviour
         // Activate green and orange Intercom lights
         intercomGreen.intensity = 1.27f;
         //intercomOrange.intensity = 1.27f;
-
-        // Deactivate console light
-        controlpanelRed.intensity = 0f;
     }
 
     // This function will be called every time a conversation has been completed. 
@@ -169,15 +189,12 @@ public class Gamemanager : MonoBehaviour
         // Disables dialogue window
         dialogueWindow.SetActive(false);
 
-        // Deactivate console button
-        button.enabled = true;
+        // Set control panel button ready
+        mainButton.SetButtonReady(true);
 
         //dialogue.startDialogue(0);
         intercomGreen.intensity = 0f;
         intercomOrange.intensity = 0f;
-
-        // Activate console light
-        controlpanelRed.intensity = 1.27f;
     }
 
 }
