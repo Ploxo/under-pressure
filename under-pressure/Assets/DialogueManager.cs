@@ -57,27 +57,46 @@ public class DialogueManager : MonoBehaviour
 
             };
 
-            for (int i = 0; i < buttons.Count; i++){
+        for (int i = 0; i < buttons.Count; i++)
+        {
 
-                int tempI = i; // This does not work without this. If you replace 'tempI' with 'i' in the next line, 
-                //                                                  it always give the last possible iterator value. 
-                //                                                  Something about this whole () => Method() thing.
+            int tempI = i; // This does not work without this. If you replace 'tempI' with 'i' in the next line, 
+                           //                                                  it always give the last possible iterator value. 
+                           //                                                  Something about this whole () => Method() thing.
 
-                buttons[i].GetComponent<Button>().onClick.AddListener(() => optionChosen(tempI));
-            }
+            buttons[i].GetComponent<Button>().onClick.AddListener(() => optionChosen(tempI));
+        }
 
-            //addDialogue();
+        StartCoroutine(WaitForOneFrame());
+    }
 
-            //startDialogue(currentDialogue);
+    IEnumerator WaitForOneFrame()
+    {
+        yield return new WaitForEndOfFrame();
 
-            
-
+        startDialogue(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (flags["Family yes"] && !flags["Aristcrat yes"])
+        {
+            startDialogue(19);
+        }
+        if (!flags["Family yes"] && flags["Aristcrat yes"])
+        {
+            startDialogue(20);
+        }
+        if (flags["Family yes"] && flags["Aristcrat yes"])
+        {
+            startDialogue(21);
+        }
+
+        if (flags["The end"])
+        {
+            startDialogue(19);
+        }
     }
 
     public void startDialogue(int dialogueUnitId){

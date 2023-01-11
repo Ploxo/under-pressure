@@ -126,6 +126,7 @@ public class Gamemanager : MonoBehaviour
 
         // Delay the intercom for a bit
         Invoke("ReadyIntercom", 5f);
+        mainButton.SetButtonReady(false);
     }
 
     private void SwapScreen(int index)
