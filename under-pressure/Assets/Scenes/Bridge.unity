@@ -741,12 +741,12 @@ PrefabInstance:
     - target: {fileID: 7243659633722034794, guid: c7ff340fdb44cf141ae9de9c6c16bf63,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 101.1
+      value: 654
       objectReference: {fileID: 0}
     - target: {fileID: 7243659633722034794, guid: c7ff340fdb44cf141ae9de9c6c16bf63,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100.5
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 7243659633722034794, guid: c7ff340fdb44cf141ae9de9c6c16bf63,
         type: 3}
@@ -761,7 +761,7 @@ PrefabInstance:
     - target: {fileID: 7243659633722034794, guid: c7ff340fdb44cf141ae9de9c6c16bf63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0109
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 7243659633722034794, guid: c7ff340fdb44cf141ae9de9c6c16bf63,
         type: 3}
@@ -1779,6 +1779,12 @@ Transform:
   m_Father: {fileID: 42354543}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 181.431, y: 0, z: -90}
+--- !u!1 &314573330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ff4a94d579d17f6429ba96eec8439775,
+    type: 3}
+  m_PrefabInstance: {fileID: 1836730598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &335544475
 Material:
   serializedVersion: 8
@@ -2510,10 +2516,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Captain gave the Agent a ride to his destination and payed him with
-    some of the profits he received from selling the Ferrotassium. The Family managed
-    to hide from the agent and sneak off the ship safely. What happened to the Aristocrat
-    we will never know. To be Continued...
+  m_text: The Captain gave the Agent a ride to his destination and paid him with
+    some of the profits he received from selling the Ferrotassium.\nThe Aristocrat
+    managed to hide from the agent and sneak off the ship safely.\nWhat happened
+    to the Family, we will never know.\nTo Be Continued...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2540,8 +2546,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2552,7 +2558,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 0.2
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2576,7 +2582,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 740.4633, y: 738.40216, z: 739.85657, w: 738.8176}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2598,7 +2604,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744293136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.0000205}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2608,7 +2614,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 101.1, y: 100.5}
+  m_SizeDelta: {x: 248, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &755325580
 PrefabInstance:
@@ -2764,6 +2770,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1836730598}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &770828065
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314573330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2212009239438826721, guid: ff4a94d579d17f6429ba96eec8439775, type: 3}
 --- !u!1 &803732540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7842e854f42f1144a8e8a3affbc7dc33,

@@ -43,14 +43,14 @@ public class Gamemanager : MonoBehaviour
     {
         endings = new List<string>();
 
-        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. What happened to the Family or the Aristocrat we will never know. To Be Continued...");
-        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Family managed to hide from the agent and sneak off the ship safely. What happened to the Aristocrat we will never know. To Be Continued...");
-        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Aristocrat managed to hide from the agent and sneak off the ship safely. What happened to the Family we will never know. To Be Continued...");
-        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Captain got off lightly with a small fine and a warning. What Happened to the Aristocrat we will never know. To Be Continued...");
-        endings.Add("The Aristocrat was taken into custody by the Agent and sent to a correctional facility. The Captain was given a fine and got demoted to work as the submarine's navigator. What happened to the Family we will never know. To Be Continued...");
-        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat managed to hide from the Agent and sneak off the ship safely. The Captain got off lightly with a small fine and a warning. To Be Continued...");
-        endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To Be Continued...");
-        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To Be Continued...");
+    endings.Add("The Captain gave the Agent a ride to his destination and paid him with some of the profits he received from selling the Ferrotassium.\nWhat happened to the Family or the Aristocrat, we will never know.\nTo Be Continued...");
+    endings.Add("The Captain gave the Agent a ride to his destination and paid him with some of the profits he received from selling the Ferrotassium.\nThe Family managed to hide from the agent and sneak off the ship safely.\nWhat happened to the Aristocrat, we will never know.\nTo Be Continued...");
+    endings.Add("The Captain gave the Agent a ride to his destination and paid him with some of the profits he received from selling the Ferrotassium.\nThe Aristocrat managed to hide from the agent and sneak off the ship safely.\nWhat happened to the Family, we will never know.\nTo Be Continued...");
+    endings.Add("The Family was taken into custody by the Agent and sent to a working camp.\nThe Captain got off lightly with a small fine and a warning.\nWhat happened to the Aristocrat, we will never know.\nTo Be Continued...");
+    endings.Add("The Aristocrat was taken into custody by the Agent and sent to a correctional facility.\nThe Captain was given a fine and got demoted to work as the submarine's navigator.\nWhat happened to the Family, we will never know.\nTo Be Continued...");
+    endings.Add("The Family was taken into custody by the Agent and sent to a working camp.\nThe Aristocrat managed to hide from the Agent and sneak off the ship safely.\nThe Captain got off lightly with a small fine and a warning.\nTo Be Continued...");
+    endings.Add("The Aristocrat was taken into custody by the Agent and sent to a correctional facility.\nThe Family managed to hide from the Agent and sneak off the ship safely.\nThe Captain was given a fine and got demoted to work as the submarine's navigator.\nTo Be Continued...");
+    endings.Add("The Family was taken into custody by the Agent and sent to a working camp.\nThe Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility.\nTo Be Continued...");
     }
 
     // Start is called before the first frame update
@@ -100,10 +100,9 @@ public class Gamemanager : MonoBehaviour
             {
                 if (kvp.Key.Contains(" end") && !kvp.Key.Contains("The"))
                 {
-                    if (kvp.Key == "Family end" || kvp.Key == "Aristocrat end" || kvp.Key == "Agent end")
+                    if (kvp.Key == "Family end" || kvp.Key == "Agent end")
                     {
                         dialogue.flags["Family end"] = false;
-                        dialogue.flags["Aristocrat end"] = false;
                         dialogue.flags["Agent end"] = false;
 
                         ActivateTravel();
