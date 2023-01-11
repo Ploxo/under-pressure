@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] int screenIndex = 0;
 
     [SerializeField] PanelFade fader;
+    [SerializeField] PanelFade endFader;
+
+    [SerializeField] TextMeshPro endText;
 
     [SerializeField] AudioSource ambience;
     [SerializeField] DialogueManager dialogue;
@@ -26,6 +30,8 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] AudioSource dockingSound;
     [SerializeField] AudioSource beepSound;
     [SerializeField] AudioSource engineSound;
+
+    private List<string> endings;
 
     private bool initialStart = true;
 
@@ -37,6 +43,15 @@ public class Gamemanager : MonoBehaviour
 
         //dialogue.flags[2];
         //initializeIntercom();
+
+        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. What happened to the Family or the Arristocrat we will never know. To be Continued...");
+        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Family managed to hide from the agent and sneak off the ship safely. What happened to the Aristocrat we will never know. To be Continued...");
+        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Aristocrat managed to hide from the agent and sneak off the ship safely. What happened to the Family we will never know. To be Continued...");
+        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Captain got off lightly with a small fine and a warning. What Happened to the Aristocrat we will never know. To be Continued...");
+        endings.Add("The Aristocrat was taken into custody by the Agent and sent to a correctional facility. The Captain was given a fine and got demoted to work as the submarine's navigator. What happened to the Family we will never know. To be Continued...");
+        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat managed to hide from the Agent and sneak off the ship safely. The Captain got off lightly with a small fine and a warning. To be Continued...");
+        endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To be Continued...");
+        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To be Continued...");
 
         SwapScreen(0);
 
@@ -81,6 +96,11 @@ public class Gamemanager : MonoBehaviour
             dialogue.flags["Docking sound"] = false;
         }
 
+        if (dialogue.flags["The end"] == true)
+        {
+
+        }
+
         CheckCloseDialogue();
     }
 
@@ -108,6 +128,97 @@ public class Gamemanager : MonoBehaviour
         fader.ShowPanel();
         StopAllCoroutines();
         StartCoroutine(WaitForPanel(fader.durationFadeIn, 2f, fader.durationFadeOut));
+    }
+
+    public void playEndTransition()
+    {
+        endFader.ShowPanel();
+        setEndText();
+        StopAllCoroutines();
+    }
+
+    public void setEndText()
+    {
+        if(dialogue.flags["Family yes"] && dialogue.flags["Aristocrat yes"])
+        {
+            if(dialogue.flags["Nothing out of the ordinary"])
+            {
+                endText.text = endings[7];
+            }
+            else if(dialogue.flags["Tell on the family"])
+            {
+                if (sameRoom())
+                {
+                    endText.text = endings[7];
+                }
+                else
+                {
+                    endText.text = endings[5];
+                }
+            }
+            else if(dialogue.flags["Tell on the aristocrat"])
+            {
+                if (sameRoom())
+                {
+                    endText.text = endings[7];
+                }
+                else
+                {
+                    endText.text = endings[6];
+                }
+            }
+            else
+            {
+                endText.text = endings[7];
+            }
+        }
+        else if(dialogue.flags["Family yes"])
+        {
+            if (dialogue.flags["Nothing out of the ordinary"])
+            {
+                endText.text = endings[1];
+            }
+            else if(dialogue.flags["Tell on the family"])
+            {
+                endText.text = endings[3];
+            }
+        }
+        else if(dialogue.flags["Aristocrat yes"])
+        {
+            if (dialogue.flags["Nothing out of the ordinary"])
+            {
+                endText.text = endings[2];
+            }
+            else if (dialogue.flags["Tell on the aristocrat"])
+            {
+                endText.text = endings[4];
+            }
+        }
+        else
+        {
+            if (dialogue.flags["Nothing out of the ordinary"])
+            {
+                endText.text = endings[0];
+            }
+        }
+        
+    }
+
+    public bool sameRoom()
+    {
+        if(dialogue.flags["Family in cargo bay"] && dialogue.flags["Aristocrat in cargo bay"])
+        {
+            return true;
+        }
+        if(dialogue.flags["Family in cleaning closet"] && dialogue.flags["Aristocrat in cleaning closet"])
+        {
+            return true;
+        }
+        if(dialogue.flags["Family in backup sleeping quarter"] && dialogue.flags["Aristocrat in backup sleeping quarter"])
+        {
+            return true;
+        }
+        return false;
     }
 
     IEnumerator WaitForPanel(float fadeInTime, float waitTime, float fadeOutTime)
