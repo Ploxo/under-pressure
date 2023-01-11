@@ -138,7 +138,7 @@ public class Gamemanager : MonoBehaviour
     {
         endFader.ShowPanel();
         setEndText();
-        submarine.SetActive(false);
+        // submarine.SetActive(false);
         StopAllCoroutines();
     }
 
