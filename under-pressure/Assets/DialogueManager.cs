@@ -18,6 +18,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public List<GameObject> buttons;
     [SerializeField] public List<Material> imageMaterials;
 
+    private int agentSound = 0;
+    private int aristocrat = 0;
+    private int family = 0;
+    private int overseer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,18 +107,22 @@ public class DialogueManager : MonoBehaviour
         {
             case "Agent": 
                 charactersMaterial = imageMaterials[0];
+                playCharacterSound("Agent")
                 break;
 
             case "Aristocrat": 
                 charactersMaterial = imageMaterials[1];
+                playCharacterSound("Aristocrat")
                 break;
 
             case "Family": 
                 charactersMaterial = imageMaterials[2];
+                playCharacterSound("Family")
                 break;
 
             case "Overseer": 
                 charactersMaterial = imageMaterials[3];
+                playCharacterSound("Overseer")
                 break;
 
             default: 
@@ -123,6 +132,86 @@ public class DialogueManager : MonoBehaviour
         }
 
         GameObject.Find("Scenery/screen").GetComponent<Renderer>().material = charactersMaterial;
+    }
+
+    private void playCharacterSound(string character)
+    {
+        switch (character)
+        {
+            case "Agent":
+                if (agentSound == 0) {
+                    GameObject.Find("Sounds/AgentSounds/agentSound1").Play();                
+                }
+                if (agentSound == 1)
+                {
+                    GameObject.Find("Sounds/AgentSounds/agentSound2").Play();
+                }
+                if (agentSound == 2)
+                {
+                    GameObject.Find("Sounds/AgentSounds/agentSound3").Play();
+                }
+                if (agentSound == 3)
+                {
+                    GameObject.Find("Sounds/AgentSounds/agentSound4").Play();
+                }
+                agentSound = (agentSound + 1) % 4
+                break;
+
+            case "Aristocrat":
+                if (aristocratSound == 0)
+                {
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound1").Play();
+                }
+                if (aristocratSound == 1)
+                {
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound2").Play();
+                }
+                if (aristocratSound == 2)
+                {
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound3").Play();
+                }
+                if (aristocratSound == 3)
+                {
+                    GameObject.Find("Sounds/AristocratSounds/aristocratSound4").Play();
+                }
+                aristocratSound = (aristocratSound + 1) % 4
+                break;
+
+            case "Family":
+                if (familySound == 0)
+                {
+                    GameObject.Find("Sounds/FamilySounds/familySound1").Play();
+                }
+                if (familySound == 1)
+                {
+                    GameObject.Find("Sounds/FamilySounds/familySound2").Play();
+                }
+                if (familySound == 2)
+                {
+                    GameObject.Find("Sounds/FamilySounds/familySound3").Play();
+                }
+                familySound = (familySound + 1) % 3
+                break;
+
+            case "Overseer":
+                if (overseerSound == 0)
+                {
+                    GameObject.Find("Sounds/OverseerSounds/overseerSound1").Play();
+                }
+                if (overseerSound == 1)
+                {
+                    GameObject.Find("Sounds/OverseerSounds/overseerSound2").Play();
+                }
+                if (overseerSound == 2)
+                {
+                    GameObject.Find("Sounds/OverseerSounds/overseerSound3").Play();
+                }
+                overseerSound = (overseerSound + 1) % 3
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void optionChosen(int buttonIndex){
