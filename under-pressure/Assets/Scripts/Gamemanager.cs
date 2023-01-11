@@ -34,15 +34,10 @@ public class Gamemanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        //dialogue.flags[2];
-        //initializeIntercom();
-
-        SwapScreen(0);
-
         StartCoroutine(WaitForOneFrame());
 
         mainButton.SetButtonReady(false);
+
         // Delay the intercom for a bit
         Invoke("ReadyIntercom", 5f);
     }
@@ -57,24 +52,6 @@ public class Gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //if (Input.GetKeyDown("space"))
-        //{
-        //    initializeIntercom();
-        //    intercomGreen.intensity = 1.27f;
-        //    intercomOrange.intensity = 1.27f;
-        //    controlpanelRed.intensity = 0f;
-
-        //}
-
-        //else if (Input.GetKeyDown("a"))
-        //{
-        //    deactivateIntercom();
-        //    intercomGreen.intensity = 0f;
-        //    intercomOrange.intensity = 0f;
-        //    controlpanelRed.intensity = 1.27f;
-        //}
-
         if (dialogue.flags["Docking sound"] == true)
         {
             dockingSound.Play();
@@ -92,10 +69,26 @@ public class Gamemanager : MonoBehaviour
             {
                 if (kvp.Key.Contains(" end") && !kvp.Key.Contains("The"))
                 {
-                    deactivateIntercom();
-                    UnreadyIntercom();
-                    dialogue.flags[kvp.Key] = false;
-                    break;
+                    if (kvp.Key == "Family end" || kvp.Key == "Aristocrat end" || kvp.Key == "Agent end")
+                    {
+                        dialogue.flags["Family end"] = false;
+                        dialogue.flags["Aristocrat end"] = false;
+                        dialogue.flags["Agent end"] = false;
+
+                        ActivateTravel();
+                        break;
+                    }
+                    else
+                    {
+                        dialogue.flags[kvp.Key] = false;
+
+                        deactivateIntercom();
+                        UnreadyIntercom();
+
+                        // Delay the intercom for a bit
+                        Invoke("ReadyIntercom", Random.Range(5, 7));
+                        break;
+                    }
                 }
             }
         }
@@ -138,12 +131,12 @@ public class Gamemanager : MonoBehaviour
 
         // Delay the intercom for a bit
         Invoke("ReadyIntercom", 5f);
-        mainButton.SetButtonReady(false);
+
+        //mainButton.SetButtonReady(false);
     }
 
     private void SwapScreen(int index)
     {
-
         var mats = tableScreen.materials;
         mats[1] = screens[index];
         tableScreen.materials = mats;
@@ -184,12 +177,11 @@ public class Gamemanager : MonoBehaviour
         // Activate dialogue window
         dialogueWindow.SetActive(true);
 
-        // Deactivate console button
-        button.enabled = false;
+        //// Deactivate console button
+        //button.enabled = false;
 
         // Activate green and orange Intercom lights
         intercomGreen.intensity = 1.27f;
-        //intercomOrange.intensity = 1.27f;
     }
 
     // This function will be called every time a conversation has been completed. 
@@ -197,23 +189,30 @@ public class Gamemanager : MonoBehaviour
     {
         intercomReady = false;
 
-        // Disables dialogue window
-        dialogueWindow.SetActive(false);
 
         var mats = intercomScreen.materials;
         mats[1] = baseScreen;
         intercomScreen.materials = mats;
 
-        // Set control panel button ready
-        if (!initialStart){
-            mainButton.SetButtonReady(true);
-        }
-        
-        initialStart = false;
+        // Disables dialogue window
+        dialogueWindow.SetActive(false);
 
         //dialogue.startDialogue(0);
         intercomGreen.intensity = 0f;
         intercomOrange.intensity = 0f;
+    }
+
+    public void ActivateTravel()
+    {
+        deactivateIntercom();
+
+        initialStart = false;
+
+        // Set control panel button ready
+        if (!initialStart)
+        {
+            mainButton.SetButtonReady(true);
+        }
     }
 
 }
