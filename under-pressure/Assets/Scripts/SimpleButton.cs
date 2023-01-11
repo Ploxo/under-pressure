@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Main button for the ship
-public class MainButton : MonoBehaviour
+public class SimpleButton : MonoBehaviour
 {
-    [SerializeField] Light selfLight;
     [SerializeField] ButtonInteractable interactable;
 
 
@@ -16,22 +14,16 @@ public class MainButton : MonoBehaviour
 
     private void OnEnable()
     {
-        interactable.OnPress.AddListener(Activate);
+
     }
 
     private void OnDisable()
     {
-        interactable.OnPress.RemoveListener(Activate);
+
     }
 
     public void SetButtonReady(bool value)
     {
-        selfLight.enabled = value;
         interactable.enabled = value;
-    }
-
-    public void Activate()
-    {
-        selfLight.enabled = false;
     }
 }

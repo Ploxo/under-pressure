@@ -39,12 +39,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871445086422707912}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.063871056, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 0.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1871445088194057204}
-  - component: {fileID: 1871445088194057205}
+  - component: {fileID: 5886022424983010084}
   - component: {fileID: 1871445088194057206}
   m_Layer: 0
   m_Name: ExampleButton
@@ -126,9 +126,9 @@ Transform:
   m_Children:
   - {fileID: 2193829270196904012}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1871445088194057205
+--- !u!114 &5886022424983010084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871445088194056968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba0b4c22962b9d4c8508f2a670923e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 35965d74b30d8c04eb7c5056cfd89eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selfLight: {fileID: 1871445086422707913}
@@ -224,7 +224,7 @@ MonoBehaviour:
   OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871445088194057205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ExampleButton, Assembly-CSharp
         m_MethodName: Activate
         m_Mode: 1
@@ -239,7 +239,7 @@ MonoBehaviour:
   OnRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871445088194057205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ExampleButton, Assembly-CSharp
         m_MethodName: SetButtonReady
         m_Mode: 6
@@ -252,7 +252,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   buttonTransform: {fileID: 8387823382030133735}
-  activationThresholdPercent: 0.398
+  activationThresholdPercent: 0.491
   minY: -0.03
   maxY: 0
 --- !u!1001 &1871445088241813415
@@ -260,7 +260,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
+    serializedVersion: 2
     m_TransformParent: {fileID: 1871445088194057204}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 01855f924f9901a4e8e80833e6e60f20,
@@ -324,21 +324,11 @@ PrefabInstance:
       value: buttonred
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7899099928202489408, guid: 01855f924f9901a4e8e80833e6e60f20,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1871445086422707914}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6821887585681450876, guid: 01855f924f9901a4e8e80833e6e60f20,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1871445087114419224}
-    - targetCorrespondingSourceObject: {fileID: 6821887585681450876, guid: 01855f924f9901a4e8e80833e6e60f20,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1871445087114419231}
   m_SourcePrefab: {fileID: 100100000, guid: 01855f924f9901a4e8e80833e6e60f20, type: 3}
 --- !u!4 &2193829270196904012 stripped
 Transform:
@@ -359,21 +349,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5139878184358846683}
-  serializedVersion: 4
+  serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -387,19 +366,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5139878184358846683}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12692043, y: 0.0336635, z: 0.12761725}
-  m_Center: {x: -0.000051718205, y: 0.016963692, z: -0.000027351081}
+  serializedVersion: 2
+  m_Size: {x: 0.15493026, y: 0.049848467, z: 0.13910863}
+  m_Center: {x: -0.000051718205, y: 0.016963692, z: -0.000027350974}
 --- !u!4 &8387823382030133735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7899099928202489408, guid: 01855f924f9901a4e8e80833e6e60f20,

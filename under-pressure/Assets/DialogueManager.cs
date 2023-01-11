@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
 
             //addDialogue();
 
-            startDialogue(currentDialogue);
+            //startDialogue(currentDialogue);
 
             
 

@@ -1644,6 +1644,13 @@ MonoBehaviour:
   intercomGreen: {fileID: 440043196}
   intercomOrange: {fileID: 1162739695}
   controlpanelRed: {fileID: 1552912514}
+  mainButton: {fileID: 1643378457}
+  tableScreen: {fileID: 1302281637}
+  screens:
+  - {fileID: 2100000, guid: 71431edb85803c644b278bb2287644ff, type: 2}
+  - {fileID: 2100000, guid: ca27ccbdaf3dbef4e98f03d140e4b424, type: 2}
+  - {fileID: 2100000, guid: b9c50fe9b06726949a93d6b50fc31410, type: 2}
+  screenIndex: 0
   ambience: {fileID: 5355283495037775603}
   dialogue: {fileID: 525046043}
   dialogueWindow: {fileID: 940463137}
@@ -1730,7 +1737,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca27ccbdaf3dbef4e98f03d140e4b424, type: 2}
+      objectReference: {fileID: 2100000, guid: 71431edb85803c644b278bb2287644ff, type: 2}
     - target: {fileID: 919132149155446097, guid: 686f396a780e04644a60e2d8725410c7,
         type: 3}
       propertyPath: m_Name
@@ -1797,643 +1804,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3062713489911798758}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &525046042 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6373947285724136980, guid: 351dac4c8a31b6448bae7b54c3daef80,
-    type: 3}
-  m_PrefabInstance: {fileID: 268111374}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &525046043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4731287381834845061, guid: 351dac4c8a31b6448bae7b54c3daef80,
     type: 3}
   m_PrefabInstance: {fileID: 268111374}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525046042}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 699605e96ed6b544dac5f52193b33a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &525046045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525046042}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc9c3b0af4ede24ea5a61d8defea79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters:
-  - Overseer
-  - Family
-  - Aristocrat
-  - Agent
-  - Captain
-  dialogues:
-  - text: Greetings, transport module 589, your shipment has been received at the
-      port.
-    character: The Boss
-    choices:
-    - text: Continue
-      nextDialogueUnit: 1
-      flags: []
-  - text: Your next instruction is to deliver 120 crates of Ferrotassium to the Galthix 
-      republic at the Barren Oceans
-    character: The Boss
-    choices:
-    - text: Continue
-      nextDialogueUnit: 2
-      flags: []
-  - text: Keep on your guard, our shipments do not usually cruise here, make sure
-      to not bring any unwanted crew on-board, understood?
-    character: The Boss
-    choices:
-    - text: Continue
-      nextDialogueUnit: 3
-      flags: []
-  - text: A detailed view of your path has been uploaded to your navigation table
-    character: The Boss
-    choices:
-    - text: Continue
-      nextDialogueUnit: 4
-      flags: []
-  - text: Good luck, transport module 589, over and out.
-    character: The Boss
-    choices:
-    - text: Continue
-      nextDialogueUnit: 5
-      flags: []
-  - text: Please kind sir, let us board your vessel! Our child is starving and we
-      have no other way to our destination!
-    character: Family
-    choices:
-    - text: Continue
-      nextDialogueUnit: 6
-      flags: []
-  - text: Please, rescue us, you know how the new government treats people like us!
-    character: Family
-    choices:
-    - text: No, I cannot risk it.
-      nextDialogueUnit: 11
-      flags:
-      - Family in cargo bay
-    - text: Yes, you can stay in the cleaning closet.
-      nextDialogueUnit: 7
-      flags:
-      - Family in cleaning closet
-    - text: Yes, you can stay in the backup room.
-      nextDialogueUnit: 7
-      flags:
-      - Family in backup sleeping quarter
-    - text: Yes, you can stay in the cargo bay.
-      nextDialogueUnit: 7
-      flags:
-      - Family in cargo bay
-  - text: We appreciate your kindness to let us stay! Is there anything you are wondering
-      about?
-    character: Family
-    choices:
-    - text: Why are you travelling?
-      nextDialogueUnit: 8
-      flags: []
-    - text: Why do you need a ride?
-      nextDialogueUnit: 9
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 10
-      flags: []
-    - text: No
-      nextDialogueUnit: 11
-      flags: []
-  - text: "\u201COur son and mother have a sickness that our doctors refuse to cure
-      for us due to our race. He told us we need to go get a certification from the
-      manufacturers first."
-    character: Family
-    choices:
-    - text: Why do you need a ride?
-      nextDialogueUnit: 9
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 10
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 11
-      flags: []
-  - text: "So much of our money has been drained to keep our sick alive and fed.
-      We don\u2019t have money for fancy vehicles\u2026"
-    character: Family
-    choices:
-    - text: Why are you travelling?
-      nextDialogueUnit: 8
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 10
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 11
-      flags: []
-  - text: 
-    character: Family
-    choices:
-    - text: Why are you travelling?
-      nextDialogueUnit: 8
-      flags: []
-    - text: Why do you need a ride?
-      nextDialogueUnit: 9
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 10
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 11
-      flags: []
-  - text: I do not have time for dabble, I require a transport to the Kothos Republic
-      at once! I have important meetings to attend to.
-    character: Aristocrat
-    choices:
-    - text: Continue
-      nextDialogueUnit: 12
-      flags: []
-  - text: I will pay you 280 thousand Kropos if you take me there.
-    character: Aristocrat
-    choices:
-    - text: Continue
-      nextDialogueUnit: 13
-      flags: []
-  - text: Well?
-    character: Aristocrat
-    choices:
-    - text: How can I refuse? Welcome on board.
-      nextDialogueUnit: 15
-      flags: []
-    - text: I am sorry, but I cannot take you there.
-      nextDialogueUnit: 14
-      flags: []
-  - text: "You will regret this\u2026!"
-    character: Aristocrat
-    choices:
-    - text: Continue
-      nextDialogueUnit: 20
-      flags: []
-  - text: Naturally. Inform me of your most suited quarters for residence.
-    character: Aristocrat
-    choices:
-    - text: Yes, you can stay in the cargo bay.
-      nextDialogueUnit: 16
-      flags:
-      - Aristocrat in cargo bay
-    - text: Yes, you can stay in the cleaning closet.
-      nextDialogueUnit: 16
-      flags:
-      - Aristocrat in cleaning closet
-    - text: Yes, you can stay in the backup room.
-      nextDialogueUnit: 16
-      flags:
-      - Aristocrat in backup sleeping quarter
-  - text: What do you want?
-    character: Aristocrat
-    choices:
-    - text: Why are you travelling?
-      nextDialogueUnit: 17
-      flags: []
-    - text: Why do you need a ride?
-      nextDialogueUnit: 18
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 19
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 20
-      flags: []
-  - text: I am travelling to the estate of Sir Blurts, you do not need to know the
-      details of my affairs
-    character: Aristocrat
-    choices:
-    - text: Why do you need a ride?
-      nextDialogueUnit: 18
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 19
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 20
-      flags: []
-  - text: "Being discreet in my line of business has its advantages, as you should
-      know by how much I\u2019ve paid you."
-    character: Aristocrat
-    choices:
-    - text: Why are you travelling?
-      nextDialogueUnit: 17
-      flags: []
-    - text: Is it comfortable here?
-      nextDialogueUnit: 19
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 20
-      flags: []
-  - text: 
-    character: Aristocrat
-    choices:
-    - text: Why are you travelling?
-      nextDialogueUnit: 17
-      flags: []
-    - text: Why do you need a ride?
-      nextDialogueUnit: 18
-      flags: []
-    - text: Continue
-      nextDialogueUnit: 20
-      flags: []
-  - text: Greetings, transport module 589, you may approach the dock.
-    character: The Overseer
-    choices:
-    - text: Continue
-      nextDialogueUnit: 21
-      flags: []
-  - text: Very good, Captain. I will send a team to assist with the cargo transfer
-      and any other needs you may have.
-    character: The Overseer
-    choices:
-    - text: Continue
-      nextDialogueUnit: 22
-      flags: []
-  - text: Safe travels Captain.
-    character: The Overseer
-    choices:
-    - text: Continue
-      nextDialogueUnit: 23
-      flags: []
-  - text: Captain, I am an agent of the Kothos Republic, my badge number is K9G7D54,
-      under the decree of our Supreme Leader Urilius I demand passage to Belium Station.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 24
-      flags: []
-  - text: I'm sorry, but we are only authorised to transport cargo and crew. Transporting
-      passengers is strictly prohibited.
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 25
-      flags: []
-  - text: Your vessel is the only one going in that direction in the next few days,
-      this requisitioning has already been approved. This is not a request
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 26
-      flags: []
-  - text: 'I see. In that case, come aboard, I do have some space, just take care
-      as the cargo can be temperamental at our depths. '
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 27
-      flags: []
-  - text: Captain, may I have a word?
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 57
-      flags: []
-  - text: "There is something I need to tell you, there is a stowaway family of Meludes
-      on board. They snuck in and haven\u2019t given me any trouble yet, I couldn\u2019t
-      turn them away."
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 29
-      flags: []
-  - text: Captain, you should know that smuggling is a serious crime. I will have
-      to take the family into custody and investigate the matter further.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 30
-      flags: []
-  - text: I understand, Agent. I'm willing to accept the consequences of my actions.
-      Just please make sure the family is treated fairly
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 31
-      flags: []
-  - text: Thank you for your cooperation Captain, but I will not deviate from the
-      Republic's laws.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 71
-      flags: []
-  - text: I found some stowaways, it is obvious you are not capable of controlling
-      your own vessel, when I make my report your designation will not be much longer.
-    character: Agent
-    choices:
-    - text: I am sorry sir...
-      nextDialogueUnit: 30
-      flags: []
-  - text: There is something I need to tell you, a Telite is on board. He demanded
-      passage and I could not refuse, you know how these aristocrats can be.
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 34
-      flags: []
-  - text: Captain, you should know that smuggling is a serious crime, especially
-      if it involves the likes of them. I will need to investigate the matter further.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 35
-      flags: []
-  - text: "I understand, Agent. I'm willing to accept the consequences of my actions.
-      Just don\u2019t tell him you got this information from me."
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 36
-      flags: []
-  - text: In the light of that I will probably only leave you with a fine and a warning
-      that the next time this happens you are going to lose a lot more than just
-      some profits.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 72
-      flags: []
-  - text: I found some stowaways, it is obvious you are not capable of controlling
-      your own vessel, when I make my report your designation will not be much longer.
-    character: Agent
-    choices:
-    - text: 'I am sorry sir, '
-      nextDialogueUnit: 38
-      flags: []
-  - text: At your age you should know better than this, maybe it is time for you
-      to retire before any accidents befall you, these waters can be dangerous.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 34
-      flags: []
-  - text: There is something I need to tell you, a Telite is on board. He demanded
-      passage and I could not refuse, you know how these aristocrats can be.
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 40
-      flags: []
-  - text: Captain, you should know that smuggling is a serious crime, especially
-      if it involves the likes of them. I will need to investigate the matter further.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 41
-      flags: []
-  - text: "I understand, Agent. I'm willing to accept the consequences of my actions.
-      Just don\u2019t tell him you got this information from me."
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 42
-      flags: []
-  - text: In the light of that I will probably only leave you with a fine and a warning
-      that the next time this happens you are going to lose a lot more than just
-      some profits.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 43
-      flags: []
-  - text: Captain, taking a Telite on board is one matter, however I found the Meludes
-      family... lying to an official of the Kothos Republic is tantamount to treason.
-    character: Agent
-    choices:
-    - text: 'I am sorry sir... '
-      nextDialogueUnit: 44
-      flags: []
-  - text: It is my duty to arrest you for your involvement in these crimes. Some
-      time in the correct facility in Karthal might put you in the right path again,
-      if you survive.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 70
-      flags: []
-  - text: "There is something I need to tell you, there is a stowaway family of Meludes
-      on board. They snuck in / asked for passage and haven\u2019t given me any trouble
-      yet, I couldn\u2019t turn them away."
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 46
-      flags: []
-  - text: Captain, you should know that smuggling is a serious crime. I will have
-      to take the family into custody and investigate the matter further.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 47
-      flags: []
-  - text: I understand, Agent. I'm willing to accept the consequences of my actions.
-      Just please make sure the family is treated fairly
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 48
-      flags: []
-  - text: Thank you for your cooperation Captain, but I will not deviate from the
-      Republic's laws.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 49
-      flags: []
-  - text: Captain, taking a  Meludes family on board is one matter, however I found
-      the Telite aristocrat... lying to an official of the Kothos Republic is tantamount
-      to treason.
-    character: Agent
-    choices:
-    - text: 'I am sorry sir... '
-      nextDialogueUnit: 50
-      flags: []
-  - text: It is my duty to arrest you for your involvement in these crimes. Some
-      time in the correct facility in Karthal might put you in the right path again,
-      if you survive.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 69
-      flags: []
-  - text: "There is something I need to tell you. A Telite and a family of Meludes
-      are on board. One demanded passage and the others were in such poor condition
-      that I couldn\u2019t refuse."
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 52
-      flags: []
-  - text: Captain, you should know that smuggling is a serious crime, especially
-      if it involves the likes of them. I will have to take both the family and the
-      aristocrat into custody and investigate the matter further.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 53
-      flags: []
-  - text: I understand, Agent. I'm willing to accept the consequences of my actions.
-      I would never disregard the Republics laws willingly, my hand was forced this
-      time.
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 54
-      flags: []
-  - text: In light of the circumstances I have no choice other than commandeering
-      this vessel.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 55
-      flags: []
-  - text: I have contacted the local authorities so they can take both the family
-      and the aristocrat into custody at our next stop.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 56
-      flags: []
-  - text: You will be under my command for this mission, your sentence when we get
-      back will depend on your performance.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 66
-      flags: []
-  - text: Of course, are you comfortable in the quarters? Is there anything I can
-      do for you?
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 58
-      flags: []
-  - text: I conducted an inspection of your vessel. Several of your safety protocols
-      are out of date, and some of your equipment is not properly maintained. This
-      is a serious breach of regulation in a government contracted submarine.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 59
-      flags: []
-  - text: I'm sorry, Agent. We have been working hard to keep our ship in good condition,
-      but I see now that we have fallen behind on some of our normal procedures,
-      these are not easy waters to navigate.
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 60
-      flags: []
-  - text: Captain, you should know that violating safety codes is a serious offence.
-      I am required to issue a fine for these violations. Perhaps an arrangement
-      can be made as I need transportation beyond Belium Station.
-    character: Agent
-    choices:
-    - text: Continue
-      nextDialogueUnit: 62
-      flags: []
-  - text: As you see we have some repairs scheduled at the station, maybe if you
-      help us field the costs we would be able to better accommodate your needs.
-    character: Captain
-    choices:
-    - text: Continue
-      nextDialogueUnit: 63
-      flags: []
-  - text: I will talk to the quartermaster when we get there to see what can be done.
-      However this will further your debt to me.
-    character: Agent
-    choices:
-    - text: That would make me more hopeful for a journey in the Scarred Depths.
-      nextDialogueUnit: 64
-      flags: []
-    - text: Maybe when we get back then.
-      nextDialogueUnit: 65
-      flags: []
-  - text: The Captain was conscripted by the Agent, hopfully the repairs to the vessel
-      help them in their endeavour. Will they succeed?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Captain was conscripted by the Agent, hopfully the vessels state will
-      not lead to an under pressure swim at the Scarred Depths. Will they survive?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Captain is arrested and sent to a correctional facility, will he be
-      able to escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Aristocrat flees. The Captain is arrested and sent to a workers camp
-      along with the family. Will their sick family member survive? How will they
-      escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Aristocrat is taken by the Agent. The family manages to escape. The
-      Captain is arrested and sent to a workers camp, will he be able to escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Aristocrats is taken by the Agent. The Captain is arrested and sent
-      to a workers camp along with the family. Will their sick family member survive?
-      How will they escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Aristocrat is taken by the Agent. The Captain is arrested and sent
-      to a workers camp with the family, will they be able to escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Captain is arrested and sent to a workers camp along with the family.
-      Will their sick family member survive? How will they escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: The Aristocrat is taken by the Agent. The Captain is arrested and sent
-      to a workers camp, will he be able to escape?
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 73
-      flags: []
-  - text: If you want to find out play the rest of the game!
-    character: Narrator
-    choices:
-    - text: Continue
-      nextDialogueUnit: 0
-      flags: []
-  currentDialogue: 0
-  buttons: []
 --- !u!4 &549391286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 677b5b626b584464bbbd9916c6384919,
@@ -2751,12 +2133,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3062713489773136616, guid: 6fbc2ee3e2b562646a8e98624878934f,
     type: 3}
   m_PrefabInstance: {fileID: 3062713489911798758}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &652918571 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-    type: 3}
-  m_PrefabInstance: {fileID: 938566016}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -3090,162 +2466,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6164da9dc12f5244fb2d39852c89c505, type: 3}
---- !u!1001 &938566016
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 1356381782}
-    m_Modifications:
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.15493026
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.049848467
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.13910863
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.000051718205
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.016963692
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.000027350974
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194056968, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Name
-      value: IntercomButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.55434096
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.55434096
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.55434096
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.842
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.737
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6920533
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.5728338
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.3247009
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.2957923
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -80.047
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 39.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057204, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 12.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: activationThresholdPercent
-      value: 0.491
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 395306276}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 395306275}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: initializeIntercom
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Gamemanager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2910238862183243701, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2745ede16dfec904ca4a35b46af82f02, type: 2}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 53d5189fe6067a24588dcef4fd52aa2d, type: 3}
 --- !u!1 &940463137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3062713489190764579, guid: 6fbc2ee3e2b562646a8e98624878934f,
@@ -3865,6 +3085,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -88.91, y: 0, z: 0}
+--- !u!23 &1302281637 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 686f396a780e04644a60e2d8725410c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 416562345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317337707
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,7 +3427,7 @@ Transform:
   - {fileID: 1357396389}
   - {fileID: 1219732991}
   - {fileID: 558090760}
-  - {fileID: 652918571}
+  - {fileID: 1871445087440188020}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4432,6 +3658,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 182e5dd32a966db46aef26a3f5c9e298, type: 3}
+--- !u!114 &1643378457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5886022424983010084, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1656273669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35965d74b30d8c04eb7c5056cfd89eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1656273669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4442,43 +3680,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1871445086422707913, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445086422707913, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
       propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.15493026
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.049848467
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.13910863
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.000051718205
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.016963692
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871445087114419231, guid: 53d5189fe6067a24588dcef4fd52aa2d,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.000027350974
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194056968, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
@@ -4542,8 +3745,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
-      propertyPath: activationThresholdPercent
-      value: 0.491
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 395306276}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1643378457}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetButtonReady
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gamemanager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LightButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -5838,10 +5071,10 @@ Transform:
   - {fileID: 136645957}
   - {fileID: 258957240}
   - {fileID: 549391286}
-  - {fileID: 1201529152}
   - {fileID: 1202762156}
   - {fileID: 770828062}
   - {fileID: 803732547}
+  - {fileID: 1201529152}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6115,6 +5348,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7050133448750523310, guid: 677b5b626b584464bbbd9916c6384919, type: 3}
+--- !u!4 &1871445087440188020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 8841487992446389098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3062713489911798758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6133,6 +5372,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1855545917}
+    - target: {fileID: 3062713489190764587, guid: 6fbc2ee3e2b562646a8e98624878934f,
+        type: 3}
+      propertyPath: m_DynamicPixelsPerUnit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062713489190764587, guid: 6fbc2ee3e2b562646a8e98624878934f,
+        type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3062713489287446886, guid: 6fbc2ee3e2b562646a8e98624878934f,
         type: 3}
       propertyPath: m_IsActive
@@ -6338,6 +5587,11 @@ PrefabInstance:
       propertyPath: indicator
       value: 
       objectReference: {fileID: 497108845}
+    - target: {fileID: 3062713491035551323, guid: 6fbc2ee3e2b562646a8e98624878934f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3062713491035551324, guid: 6fbc2ee3e2b562646a8e98624878934f,
         type: 3}
       propertyPath: m_IsActive
@@ -6602,3 +5856,79 @@ Transform:
   m_Father: {fileID: 5355283495037775600}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -0.23, y: -6.265, z: -3.11}
+--- !u!1001 &8841487992446389098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 1356381782}
+    m_Modifications:
+    - target: {fileID: 7155079719126546716, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 395306276}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.842
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6920533
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5728338
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3247009
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.2957923
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -80.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 39.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546718, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546914, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
+      propertyPath: m_Name
+      value: IntercomButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: dad7f40762303db4f8b9d63e52fc31ab, type: 3}
