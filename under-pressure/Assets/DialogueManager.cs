@@ -59,8 +59,8 @@ public class DialogueManager : MonoBehaviour
             {"Ending 4", false},
             {"Ending 5", false},
             {"Ending 6", false},
-            };
-
+        };
+        
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. What happened to the Family or the Arristocrat we will never know. To be Continued...");
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Family managed to hide from the agent and sneak off the ship safely. What happened to the Aristocrat we will never know. To be Continued...");
         endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Aristocrat managed to hide from the agent and sneak off the ship safely. What happened to the Family we will never know. To be Continued...");
@@ -69,14 +69,12 @@ public class DialogueManager : MonoBehaviour
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat managed to hide from the Agent and sneak off the ship safely. The Captain got off lightly with a small fine and a warning. To be Continued...");
         endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To be Continued...");
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To be Continued...");
-
+    
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
-            //dialogues = new List<DialogueUnit>();
 
         for (int i = 0; i < buttons.Count; i++)
         {
@@ -160,7 +158,6 @@ public class DialogueManager : MonoBehaviour
         {
 
         }
-
     }
 
     public void startDialogue(int dialogueUnitId){
