@@ -24,6 +24,10 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] GameObject dialogueWindow;
 
     [SerializeField] AudioSource dockingSound;
+    [SerializeField] AudioSource beepSound;
+    [SerializeField] AudioSource engineSound;
+
+
 
     private int gameStateID = 0;
 
@@ -35,12 +39,18 @@ public class Gamemanager : MonoBehaviour
 
         SwapScreen(0);
 
-        deactivateIntercom();
-        UnreadyIntercom();
+        StartCoroutine(WaitForOneFrame());
 
         mainButton.SetButtonReady(false);
         // Delay the intercom for a bit
         Invoke("ReadyIntercom", 5f);
+    }
+
+    IEnumerator WaitForOneFrame(){
+        yield return new WaitForEndOfFrame();
+
+        deactivateIntercom();
+        UnreadyIntercom();
     }
 
     // Update is called once per frame
@@ -67,7 +77,7 @@ public class Gamemanager : MonoBehaviour
         if (dialogue.flags["Docking sound"] == true)
         {
             dockingSound.Play();
-            dialogue.flags["Dialogue sound"] = false;
+            dialogue.flags["Docking sound"] = false;
         }
 
         CheckCloseDialogue();
@@ -93,6 +103,7 @@ public class Gamemanager : MonoBehaviour
     public void PlayTransition()
     {
         // Play the transition here
+        engineSound.Play();
         fader.ShowPanel();
         StopAllCoroutines();
         StartCoroutine(WaitForPanel(fader.durationFadeIn, 2f, fader.durationFadeOut));
@@ -131,7 +142,6 @@ public class Gamemanager : MonoBehaviour
 
     private void SwapScreen(int index)
     {
-        Debug.Log("swap");
 
         var mats = tableScreen.materials;
         mats[1] = screens[index];
@@ -143,6 +153,7 @@ public class Gamemanager : MonoBehaviour
     {
         intercomReady = true;
         intercomOrange.intensity = 1.27f;
+        beepSound.Play();
     }
 
     public void UnreadyIntercom()

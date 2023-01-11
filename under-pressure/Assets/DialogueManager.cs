@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-[ExecuteInEditMode]
 [System.Serializable]
 public class DialogueManager : MonoBehaviour
 {
@@ -23,7 +22,41 @@ public class DialogueManager : MonoBehaviour
     private int familySound = 0;
     private int overseerSound = 0;
 
+<<<<<<< HEAD
     private List<String> endings;
+=======
+    void Awake(){
+
+        flags = new Dictionary<string, bool>(){
+
+            {"Overseer 1 end", false},
+            {"Family yes", false},
+            {"Family end", false},
+            {"Family in cargo bay", false},
+            {"Family in cleaning closet", false},
+            {"Family in backup sleeping quarter", false},
+            {"Aristocrat yes", false},
+            {"Aristocrat end", false},
+            {"Aristocrat in cargo bay", false},
+            {"Aristocrat in cleaning closet", false},
+            {"Aristocrat in backup sleeping quarter", false},
+            {"Docking sound", false},
+            {"Overseer 2 end", false},
+            {"Nothing out of the ordinary", false},
+            {"Tell on the family", false},
+            {"Tell on the aristocrat", false},
+            {"Tell on both", false},
+            {"Agent end", false},
+            {"Under command", false},
+            {"Debt", false},
+            {"The end", false},
+            {"Family dialogue end", false},
+            {"Aristocrat dialogue end", false},
+
+        };
+
+    }
+>>>>>>> main
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         
             //dialogues = new List<DialogueUnit>();
 
+<<<<<<< HEAD
             flags = new Dictionary<string, bool>(){
 
                 {"Overseer 1 end", false},
@@ -73,6 +107,8 @@ public class DialogueManager : MonoBehaviour
         endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To be Continued...");
         endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To be Continued...");
 
+=======
+>>>>>>> main
         for (int i = 0; i < buttons.Count; i++)
         {
 
@@ -83,7 +119,9 @@ public class DialogueManager : MonoBehaviour
             buttons[i].GetComponent<Button>().onClick.AddListener(() => optionChosen(tempI));
         }
 
-        StartCoroutine(WaitForOneFrame());
+
+        startDialogue(0);
+        //StartCoroutine(WaitForOneFrame());
     }
 
     IEnumerator WaitForOneFrame()
@@ -96,6 +134,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         if (currentDialogue == 18 && flags["Family yes"] && !flags["Aristocrat yes"])
         {
             startDialogue(19);
@@ -133,6 +172,41 @@ public class DialogueManager : MonoBehaviour
         {
 
         }
+=======
+        checkFlags();
+    }
+
+    void checkFlags(){
+
+        // Debug.Log("HALLO");
+        if (currentDialogue == 18){
+              Debug.Log("YES 18");
+
+            if (flags["Family yes"] && !flags["Aristocrat yes"])
+            {
+                Debug.Log("YN");
+                switchDialogue(19); 
+            }
+            if (!flags["Family yes"] && flags["Aristocrat yes"])
+            {
+                Debug.Log("NY");
+                switchDialogue(20);
+            }
+            if (flags["Family yes"] && flags["Aristocrat yes"])
+            {
+                Debug.Log("YY");
+                switchDialogue(21);
+            }
+
+            if (flags["The end"])
+            {
+                Debug.Log("end i guess");
+                currentDialogue = 19;
+                switchDialogue(19);
+            }
+        }
+
+>>>>>>> main
     }
 
     public void startDialogue(int dialogueUnitId){
@@ -191,6 +265,11 @@ public class DialogueManager : MonoBehaviour
         var mats = rend.materials;
         mats[1] = charactersMaterial;
         rend.materials = mats;
+    }
+
+    void switchDialogue(int dialogueUnitId){
+        currentDialogue = dialogueUnitId;
+        startDialogue(currentDialogue);
     }
 
 
