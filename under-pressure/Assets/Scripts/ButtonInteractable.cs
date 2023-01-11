@@ -17,16 +17,23 @@ public class ButtonInteractable : XRBaseInteractable
     [SerializeField, Range(0f, 1f), Tooltip("The activation happens at this percentage height of the collider")] 
     private float activationThresholdPercent = 0.5f;
 
+    [SerializeField, Range(0f, 1f)]
+    private float releaseThresholdPercent = 0.6f;
+
     [SerializeField, Tooltip("The minimum local height that the button may have. 0 is initial height")] 
     private float minY = -0.1f;
     [SerializeField, Tooltip("The maximum local height that the button may have. 0 is initial height.")] 
     private float maxY = 0f;
 
     private float activationThreshold;
+    private float releaseThreshold;
     private bool wasPressedLastFrame = false;
 
     private IXRHoverInteractor hoverInteractor = null;
     private float previousHandHeight = 0f;
+
+    public float pressTime = 0.1f;
+    private float pressTimer = 0.1f;
 
 
     protected override void Awake()
@@ -49,6 +56,15 @@ public class ButtonInteractable : XRBaseInteractable
     private void Start()
     {
         activationThreshold = Mathf.Abs(minY - maxY) * activationThresholdPercent;
+        releaseThreshold = Mathf.Abs(minY - maxY) * releaseThresholdPercent;
+    }
+
+    private void Update()
+    {
+        if (pressTimer > 0f)
+        {
+            pressTimer -= Time.deltaTime;
+        }
     }
 
     // Runs on interactable hover enter and sets the current interactor and position
@@ -106,19 +122,21 @@ public class ButtonInteractable : XRBaseInteractable
         buttonTransform.localPosition = newPosition;
     }
 
+    bool wasPressed = false;
     private void CheckPress()
     {
-        bool isPressed = IsInPosition();
+        bool isPressed = IsInPressZone();
+        bool isReleased = IsInReleaseZone();
 
         // Detect a positive change in activation state
-        if (isPressed && !wasPressedLastFrame)
+        if (isPressed && !wasPressed)
         {
-            //Debug.Log("Detected press");
+            wasPressed = true;
             OnPress.Invoke();
         }
-        else if (!isPressed && wasPressedLastFrame)
+        else if (isReleased && wasPressed)
         {
-            //Debug.Log("Detected release");
+            wasPressed = false;
             OnRelease.Invoke();
         }
 
@@ -126,10 +144,18 @@ public class ButtonInteractable : XRBaseInteractable
         wasPressedLastFrame = isPressed;
     }
 
-    private bool IsInPosition()
+    private bool IsInPressZone()
     {
         // Check if value remains the same after clamping to activation range; if true, it was in range
         float inRange = Mathf.Clamp(buttonTransform.localPosition.y, minY, minY + activationThreshold);
+
+        return buttonTransform.localPosition.y == inRange;
+    }
+
+    private bool IsInReleaseZone()
+    {
+        // Check if value remains the same after clamping to activation range; if true, it was in range
+        float inRange = Mathf.Clamp(buttonTransform.localPosition.y, minY + releaseThreshold, maxY);
 
         return buttonTransform.localPosition.y == inRange;
     }

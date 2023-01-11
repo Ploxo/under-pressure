@@ -3328,7 +3328,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca9b3a5d132cf214a8f604512208f08f, type: 2}
+      objectReference: {fileID: 2100000, guid: 1aa9fc66a71da144cba11f99f5794fd6, type: 2}
     - target: {fileID: 919132149155446097, guid: 7842e854f42f1144a8e8a3affbc7dc33,
         type: 3}
       propertyPath: m_Name
@@ -4175,7 +4175,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
+      propertyPath: releaseThresholdPercent
+      value: 0.824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
@@ -4187,7 +4197,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 395306276}
+      objectReference: {fileID: 2111773369}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -4195,7 +4205,22 @@ PrefabInstance:
       objectReference: {fileID: 2111773369}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
       propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 395306276}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1643378457}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
@@ -4206,7 +4231,7 @@ PrefabInstance:
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayTransition
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
@@ -4215,13 +4240,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
       propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetButtonReady
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Gamemanager, Assembly-CSharp
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
@@ -4231,6 +4266,11 @@ PrefabInstance:
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
       propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gamemanager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: LightButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
@@ -4241,6 +4281,16 @@ PrefabInstance:
     - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871445088194057206, guid: 53d5189fe6067a24588dcef4fd52aa2d,
+        type: 3}
+      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6470,8 +6520,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7155079719126546716, guid: dad7f40762303db4f8b9d63e52fc31ab,
         type: 3}
+      propertyPath: releaseThresholdPercent
+      value: 0.896
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155079719126546716, guid: dad7f40762303db4f8b9d63e52fc31ab,
+        type: 3}
       propertyPath: activationThresholdPercent
-      value: 0.655
+      value: 0.453
       objectReference: {fileID: 0}
     - target: {fileID: 7155079719126546716, guid: dad7f40762303db4f8b9d63e52fc31ab,
         type: 3}
