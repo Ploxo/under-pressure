@@ -25,6 +25,8 @@ public class Gamemanager : MonoBehaviour
 
     [SerializeField] AudioSource dockingSound;
     [SerializeField] AudioSource beepSound;
+    [SerializeField] AudioSource engineSound;
+
 
 
     private int gameStateID = 0;
@@ -101,6 +103,7 @@ public class Gamemanager : MonoBehaviour
     public void PlayTransition()
     {
         // Play the transition here
+        engineSound.Play();
         fader.ShowPanel();
         StopAllCoroutines();
         StartCoroutine(WaitForPanel(fader.durationFadeIn, 2f, fader.durationFadeOut));
