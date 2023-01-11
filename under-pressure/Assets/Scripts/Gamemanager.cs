@@ -35,12 +35,18 @@ public class Gamemanager : MonoBehaviour
 
         SwapScreen(0);
 
-        deactivateIntercom();
-        UnreadyIntercom();
+        StartCoroutine(WaitForOneFrame());
 
         mainButton.SetButtonReady(false);
         // Delay the intercom for a bit
         Invoke("ReadyIntercom", 5f);
+    }
+
+    IEnumerator WaitForOneFrame(){
+        yield return new WaitForEndOfFrame();
+
+        deactivateIntercom();
+        UnreadyIntercom();
     }
 
     // Update is called once per frame
@@ -131,7 +137,6 @@ public class Gamemanager : MonoBehaviour
 
     private void SwapScreen(int index)
     {
-        Debug.Log("swap");
 
         var mats = tableScreen.materials;
         mats[1] = screens[index];
