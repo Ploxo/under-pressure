@@ -26,14 +26,29 @@ public class DialogueManager : MonoBehaviour
 
             flags = new Dictionary<string, bool>(){
 
-                {"Family", false},
-                {"Aristocrat", false},
+                {"Overseer 1 end", false},
+                {"Family yes", false},
+                {"Family end", false},
                 {"Family in cargo bay", false},
                 {"Family in cleaning closet", false},
                 {"Family in backup sleeping quarter", false},
+                {"Aristocrat yes", false},
+                {"Aristocrat end", false},
                 {"Aristocrat in cargo bay", false},
                 {"Aristocrat in cleaning closet", false},
-                {"Aristocrat in backup sleeping quarter", false}
+                {"Aristocrat in backup sleeping quarter", false},
+                {"Docking sound", false},
+                {"Overseer 2 end", false},
+                {"Nothing out of the ordinary", false},
+                {"Tell on the family", false},
+                {"Tell on the aristocrat", false},
+                {"Tell on both", false},
+                {"Agent end", false},
+                {"Under command", false},
+                {"Debt", false},
+                {"The end", false},
+                {"Family dialogue end", false},
+                {"Aristocrat dialogue end", false},
 
             };
 
@@ -50,6 +65,7 @@ public class DialogueManager : MonoBehaviour
 
             startDialogue(currentDialogue);
 
+            
 
     }
 
@@ -59,7 +75,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    private void startDialogue(int dialogueUnitId){
+    public void startDialogue(int dialogueUnitId){
 
         DialogueUnit dialogueUnit = dialogues[dialogueUnitId];
 
@@ -98,9 +114,6 @@ public class DialogueManager : MonoBehaviour
 
         currentDialogue = choice.nextDialogueUnit;
         startDialogue(currentDialogue);
-
-
-
     }
 
 
