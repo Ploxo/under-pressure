@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     private int familySound = 0;
     private int overseerSound = 0;
 
+    private List<String> endings;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,8 +56,22 @@ public class DialogueManager : MonoBehaviour
                 {"The end", false},
                 {"Family dialogue end", false},
                 {"Aristocrat dialogue end", false},
-
+                {"Ending 1", false},
+                {"Ending 2", false},
+                {"Ending 3", false},
+                {"Ending 4", false},
+                {"Ending 5", false},
+                {"Ending 6", false},
             };
+
+        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. What happened to the Family or the Arristocrat we will never know. To be Continued...");
+        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Family managed to hide from the agent and sneak off the ship safely. What happened to the Aristocrat we will never know. To be Continued...");
+        endings.Add("The Captain gave the Agent a ride to his destination and payed him with some of the profits he received from selling the Ferrotassium. The Aristocrat managed to hide from the agent and sneak off the ship safely. What happened to the Family we will never know. To be Continued...");
+        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Captain got off lightly with a small fine and a warning. What Happened to the Aristocrat we will never know. To be Continued...");
+        endings.Add("The Aristocrat was taken into custody by the Agent and sent to a correctional facility. The Captain was given a fine and got demoted to work as the submarine's navigator. What happened to the Family we will never know. To be Continued...");
+        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat managed to hide from the Agent and sneak off the ship safely. The Captain got off lightly with a small fine and a warning. To be Continued...");
+        endings.Add("The Aristocrat was raken into custody by the Agent and sent to a correctional facility. The Family managed to hide from the Agent and sneak off the ship safely. The Captain was given a fine and got demoted to work as the submarine's navigator. To be Continued...");
+        endings.Add("The Family was taken into custody by the Agent and sent to a working camp. The Aristocrat and Captain were both taken into custody by the Agent and sent to a correctional facility. To be Continued...");
 
         for (int i = 0; i < buttons.Count; i++)
         {
@@ -80,22 +96,42 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (flags["Family yes"] && !flags["Aristcrat yes"])
+        if (currentDialogue == 18 && flags["Family yes"] && !flags["Aristocrat yes"])
         {
             startDialogue(19);
         }
-        if (!flags["Family yes"] && flags["Aristcrat yes"])
+        else if (currentDialogue == 18 && !flags["Family yes"] && flags["Aristocrat yes"])
         {
             startDialogue(20);
         }
-        if (flags["Family yes"] && flags["Aristcrat yes"])
+        else if (currentDialogue == 18 && flags["Family yes"] && flags["Aristocrat yes"])
         {
             startDialogue(21);
         }
 
-        if (flags["The end"])
+        if (flags["The end"] && flags["Ending 1"])
         {
-            startDialogue(19);
+            
+        }
+        else if (flags["The end"] && flags["Ending 2"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 3"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 4"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 5"])
+        {
+
+        }
+        else if (flags["The end"] && flags["Ending 6"])
+        {
+
         }
     }
 
